@@ -1,15 +1,14 @@
 local op_sys = require "utils"
-local configs = require "configs"
 
 return {
   ----------- Overwrite defaults ------------
   {
     "lewis6991/gitsigns.nvim",
-    opts = configs.gitsigns,
+    opts = require "configs.gitsigns,
   },
   {
     "nvim-telescope/telescope.nvim",
-    opts = configs.telescope,
+    opts = require "configs.telescope",
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
@@ -31,22 +30,22 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    opts = configs.nvimtree,
+    opts = require "configs.nvimtree",
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = configs.treesitter,
+    opts = require "configs.treesitter",
     dependencies = {
       { "yioneko/nvim-yati" },
     },
   },
   {
     "williamboman/mason.nvim",
-    opts = configs.mason,
+    opts = require "configs.mason",
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    opts = configs.blankline,
+    opts = require "configs.blankline",
   },
   {
     "neovim/nvim-lspconfig",
@@ -85,7 +84,7 @@ return {
           show_dirname = false,
           show_basename = false,
           attach_navic = false,
-          kinds = configs.barbecue,
+          kinds = require "configs.barbecue",
         },
       },
     },
