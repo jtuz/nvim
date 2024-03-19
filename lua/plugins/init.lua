@@ -204,6 +204,7 @@ return {
       require("dap.ext.vscode").load_launchjs(".nvim/launch.json", nil)
     end,
     dependencies = {
+      { "nvim-neotest/nvim-nio" },
       {
         "mfussenegger/nvim-dap",
         config = function()
