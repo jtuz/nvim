@@ -168,25 +168,6 @@ return {
     end,
   },
   {
-    "nvim-telescope/telescope-media-files.nvim",
-    enabled = op_sys.LINUX(),
-    lazy = false,
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-    },
-    config = function()
-      require("telescope").setup {
-        extensions = {
-          media_files = {
-            filetypes = { "png", "webp", "jpg", "jpeg" },
-            find_cmd = "rg", -- find command (defaults to `fd`)
-          },
-        },
-      }
-      require("telescope").load_extension "media_files"
-    end,
-  },
-  {
     "natecraddock/sessions.nvim",
     lazy = false,
     config = function()
