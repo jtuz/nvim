@@ -10,7 +10,6 @@ nomap("n", "<C-c>")
 nomap("n", "<C-n>")
 nomap("n", "<leader>b")
 nomap("n", "<leader>gt")
-nomap("n", "<leader>gt")
 -- Disable NvTerm shortcuts
 nomap("n", "<A-i>")
 nomap("t", "<A-i>")
