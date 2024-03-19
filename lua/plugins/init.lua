@@ -4,7 +4,7 @@ return {
   ----------- Overwrite defaults ------------
   {
     "lewis6991/gitsigns.nvim",
-    opts = require "configs.gitsigns,
+    opts = require "configs.gitsigns",
   },
   {
     "nvim-telescope/telescope.nvim",
