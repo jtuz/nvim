@@ -1,5 +1,5 @@
 local utils = require "nvchad.stl.utils"
-local op_sys = require("custom.utils")
+local op_sys = require("utils")
 
 local sep_style = "block"
 local default_sep_icons = {
