@@ -1,9 +1,10 @@
--- EXAMPLE 
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local navic = require("nvim-navic")
+local util = require 'lspconfig/util'
 
 local function sif(config, server)
   if config.settings then
@@ -20,11 +21,6 @@ local function fif(config, server)
     return server.filetypes
   end
 end
-
-
-local navic = require("nvim-navic")
-local util = require 'lspconfig/util'
-
 
 local servers = {
   pyright = {
@@ -89,7 +85,12 @@ local servers = {
 
 for server, config in pairs(servers) do
   lspconfig[server].setup({
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      if client.server.capabilities["documentSymbolProvider"] then
+        navic.attach(client, bufnr)
+      end
+    end,
     capabilities = capabilities,
     on_init = on_init,
     handlers = {
