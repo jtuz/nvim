@@ -11,8 +11,6 @@ nomap("n", "<C-n>")
 nomap("n", "<leader>b")
 nomap("n", "<leader>gt")
 -- Disable NvTerm shortcuts
-nomap("n", "<A-i>")
-nomap("t", "<A-i>")
 nomap("n", "<A-h>")
 nomap("t", "<A-h>")
 nomap("n", "<A-v>")
@@ -20,6 +18,14 @@ nomap("t", "<A-v>")
 nomap("n", "<leader>h")
 nomap("n", "<leader>v")
 
+-- new terminals
+map("n", "<leader>tx", function()
+  require("nvchad.term").new { pos = "sp", size = 0.3 }
+end, { desc = "Terminal New horizontal term" })
+
+map("n", "<leader>tv", function()
+  require("nvchad.term").new { pos = "vsp", size = 0.3 }
+end, { desc = "Terminal New vertical window" })
 
 -- Telescope
 map("n", "<leader>sy", "<cmd> Telescope lsp_document_symbols<CR>", { desc = "Find document symbols" })
@@ -51,6 +57,10 @@ map("n", "<Right>", "<NOP>", { desc = "Disable Right" })
 -- Personal Tools
 map("n", "<leader>jq", "<Esc><cmd>%!jq .<CR><Esc><cmd> set filetype=json<CR>", { desc = "Format Json" })
 map("n", "<leader>so", "<cmd> SymbolsOutline<CR>", { desc = "Symbols Outline" })
+
+-- Misc
+map("v", ">", ">gv", { desc= "Does not exist visual mode"})
+map("v", "<", "<gv", { desc= "Does not exist visual mode"})
 
 -- navigate within insert mode
 map("i", "<C-h>", "<Left>", { desc = "move left" })
