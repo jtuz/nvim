@@ -87,7 +87,7 @@ for server, config in pairs(servers) do
   lspconfig[server].setup({
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
-      if client.server.capabilities["documentSymbolProvider"] then
+      if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
       end
     end,
