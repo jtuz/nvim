@@ -80,6 +80,7 @@ return {
         version = "*",
         lazy = false,
         opts = {
+          create_autocmd = false,
           -- configurations go here
           show_dirname = false,
           show_basename = false,

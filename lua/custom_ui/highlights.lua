@@ -5,10 +5,14 @@ M.override = {
 	NvDashAscii = { bg = "#0E2738", fg = "red" },
 	NvDashButtons = { bg = "#17415E", fg = "white" },
 	NvimTreeRootFolder = { fg = "green" },
+	WinBar = { bg = "statusline_bg" },
+	WinBarNC = { bg="statusline_bg" }
 }
 
 M.add = {
 	Nvim_navic = { fg = "red", bg = "statusline_bg" },
+	WinBar = { bg = "statusline_bg" },
+	WinBarNC = { bg="statusline_bg" }
 }
 
 return M

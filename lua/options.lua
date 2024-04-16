@@ -38,28 +38,40 @@ opt.autoindent = true
 opt.colorcolumn = "+1"
 opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
+-- triggers CursorHold event faster
+opt.updatetime = 200
+
 -- Override NvChad default settings
 opt.relativenumber = true
 opt.tabstop = 4
 
 -- Abbrev
-cmd("cnoreabbrev Q  q")
-cmd("cnoreabbrev q1  q!")
-cmd("cnoreabbrev Q1  q!")
-cmd("cnoreabbrev Qa1 qa!")
-cmd("cnoreabbrev Qa qa")
-cmd("cnoreabbrev W  w")
-cmd("cnoreabbrev Wq wq")
-cmd("cnoreabbrev WQ wq")
-cmd("cnoreabbrev Set set")
-cmd("cnoreabbrev SEt set")
-cmd("cnoreabbrev SET set")
+cmd "cnoreabbrev Q  q"
+cmd "cnoreabbrev q1  q!"
+cmd "cnoreabbrev Q1  q!"
+cmd "cnoreabbrev Qa1 qa!"
+cmd "cnoreabbrev Qa qa"
+cmd "cnoreabbrev W  w"
+cmd "cnoreabbrev Wq wq"
+cmd "cnoreabbrev WQ wq"
+cmd "cnoreabbrev Set set"
+cmd "cnoreabbrev SEt set"
+cmd "cnoreabbrev SET set"
 
 -------------------- Auto commands -----------------------
 -- Instead of reverting the cursor to the last position in the buffer
 -- we set it to the first line when editing a git commit message
 -- also Editor Config plugin is disabled on git commit message
-local commit_group = vim.api.nvim_create_augroup('user_cmds', {clear = true})
+local commit_group = vim.api.nvim_create_augroup("user_cmds", { clear = true })
+
+autocmd({ "FileType", "BufRead" }, {
+  pattern = "*.jenkinsfile",
+  callback = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    vim.api.nvim_buf_set_option(bufnr, "filetype", "groovy")
+    -- vim.api.nvim_set_option_value("filetype", "groovy", {scope="local", buf=bufnr})
+  end,
+})
 
 autocmd("FileType", {
   pattern = "gitcommit",
@@ -90,45 +102,59 @@ autocmd("BufReadPost", {
   end,
 })
 
-
 -- File extension specific tabbing
 autocmd("Filetype", {
-   pattern = "python",
-   callback = function()
-      vim.opt_local.foldlevel = 9
-      vim.opt_local.foldmethod = "indent"
-      vim.opt_local.expandtab = true
-      vim.opt_local.tabstop = 4
-      vim.opt_local.shiftwidth = 4
-      vim.opt_local.softtabstop = 4
-   end,
+  pattern = "python",
+  callback = function()
+    vim.opt_local.foldlevel = 9
+    vim.opt_local.foldmethod = "indent"
+    vim.opt_local.expandtab = true
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+  end,
 })
 
 -- Highlight yanked text
 autocmd("TextYankPost", {
-   callback = function()
-      vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
-   end,
+  callback = function()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
+  end,
 })
 
 -- Enable spellchecking in markdown, text and gitcommit files
 autocmd("FileType", {
-   pattern = { "gitcommit", "markdown", "text" },
-   callback = function()
-      vim.opt_local.spell = true
-   end,
+  pattern = { "gitcommit", "markdown", "text" },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
 })
 
 autocmd("FileType", {
-  pattern = {"help", "man"},
-  command = "nnoremap <buffer> gq <cmd>quit<cr>"
+  pattern = { "help", "man" },
+  command = "nnoremap <buffer> gq <cmd>quit<cr>",
 })
 
 -- Fix conceallevel for json files
 autocmd("FileType", {
-  pattern = {"json", "jsonc"},
+  pattern = { "json", "jsonc" },
   callback = function()
     vim.wo.spell = false
     vim.wo.conceallevel = 0
+  end,
+})
+
+-- barbecue autocmd
+autocmd({
+  "WinResized",
+  "BufWinEnter",
+  "CursorHold",
+  "InsertLeave",
+  -- include this if you have set `show_modified` to `true`
+  -- "BufModifiedSet",
+}, {
+  group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+  callback = function()
+    require("barbecue.ui").update()
   end,
 })
