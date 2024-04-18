@@ -1,5 +1,3 @@
-local op_sys = require "utils"
-
 return {
   ----------- Overwrite defaults ------------
   {

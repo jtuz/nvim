@@ -1,5 +1,4 @@
 ---@type ChadrcConfig
-
 local M = {}
 
 -- ui configs
@@ -71,7 +70,6 @@ M.ui = {
   },
   lsp = {
     signature = true,
-    semantic_tokens = true,
   }
 }
 
