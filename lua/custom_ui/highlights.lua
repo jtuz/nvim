@@ -6,8 +6,7 @@ M.override = {
   NvDashButtons = { bg = "#17415E", fg = "white" },
   NvimTreeRootFolder = { fg = "green" },
   WinBar = {
-    cterm = "none",
-    gui = "none",
+    bg="statusline_bg"
   },
   -- WinBarNC = { bg="statusline_bg" }
 }

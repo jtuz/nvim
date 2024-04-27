@@ -4,8 +4,8 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "oxocarbon" },
-  theme = "oxocarbon",
+  theme_toggle = { "gruvchad", "oceanic-next" },
+  theme = "oceanic-next",
   transparency = false,
   hl_override = require("custom_ui.highlights").override,
   hl_add = require("custom_ui.highlights").add,
@@ -14,7 +14,7 @@ M.ui = {
     style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
   },
   telescope = {
-    style = "borderless", -- borderless / bordered
+    style = "bordered", -- borderless / bordered
   },
   -- https://github.com/NvChad/NvChad/commit/16fadf9e0d53cf65a954486952ac3eba36d46788#commitcomment-139350293
   statusline = {
