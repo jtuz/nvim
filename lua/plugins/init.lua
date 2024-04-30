@@ -8,22 +8,17 @@ return {
     "nvim-telescope/telescope.nvim",
     opts = require "configs.telescope",
     dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-      lazy = false,
-      config = function()
-        require("telescope").setup {
-          extensions = {
-            fzf = {
-              fuzzy = true,
-              override_generic_sorter = true,
-              override_file_sorter = true,
-              case_mode = "smart_case",
-            },
-          },
-        }
-        require("telescope").load_extension "fzf"
-      end,
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+      },
+      {
+        "debugloop/telescope-undo.nvim",
+        config = function()
+          local map = vim.keymap.set
+          map("n", "<leader>fu", "<CMD>Telescope undo<CR>", { desc = "Find undo" })
+        end,
+      },
     },
   },
   {
@@ -67,16 +62,10 @@ return {
         end,
       },
       {
-        "SmiteshP/nvim-navic",
-        config = function()
-          require("nvim-navic").setup()
-        end,
-      },
-      {
         "utilyre/barbecue.nvim",
         name = "barbecue",
         version = "*",
-        lazy = false,
+        event = "LspAttach",
         opts = {
           create_autocmd = false,
           -- configurations go here
@@ -84,6 +73,12 @@ return {
           show_basename = false,
           attach_navic = false,
           kinds = require "configs.barbecue",
+        },
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          config = function()
+            require("nvim-navic").setup()
+          end,
         },
       },
     },
@@ -122,9 +117,11 @@ return {
     lazy = false,
   },
   {
+    -- TODO: Fix Wezterm conflicts
     "mg979/vim-visual-multi",
     branch = "master",
     lazy = false,
+    enabled = false,
   },
   {
     "godlygeek/tabular",
@@ -149,7 +146,8 @@ return {
     lazy = false,
     config = function()
       require("marks").setup {
-        builtin_marks = { ".", "<", ">", "^" },
+        -- builtin_marks = { ".", "<", ">", "^" },
+        builtin_marks = { " ", " ", " ", " " },
         mappings = {
           next = "]'",
           prev = "['",
@@ -159,12 +157,17 @@ return {
     end,
   },
   {
+    -- FIXME: <C-b>, zt, zz, zb shortcuts are failing
     "karb94/neoscroll.nvim",
     lazy = true,
-    event = "WinScrolled",
-    config = function()
-      require("neoscroll").setup()
-    end,
+    keys = { "<C-d>", "<C-u>", "<C-e>", "<C-f>", "<C-y>" },
+    opts = { mappings = {
+      "<C-u>",
+      "<C-d>",
+      "<C-e>",
+      "<C-f>",
+      "<C-y>",
+    } },
   },
   {
     "natecraddock/sessions.nvim",

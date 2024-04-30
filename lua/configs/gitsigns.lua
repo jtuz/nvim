@@ -17,6 +17,23 @@ return {
 
     local map = vim.keymap.set
 
+    -- Navigation
+    map("n", "]c", function()
+      if vim.wo.diff then
+        vim.cmd.normal { "]c", bang = true }
+      else
+        gs.nav_hunk "next"
+      end
+    end)
+
+    map("n", "[c", function()
+      if vim.wo.diff then
+        vim.cmd.normal { "[c", bang = true }
+      else
+        gs.nav_hunk "prev"
+      end
+    end)
+
     map("n", "<leader>rh", gs.reset_hunk, opts "Reset Hunk")
     map("n", "<leader>ph", gs.preview_hunk, opts "Preview Hunk")
     map("n", "<leader>bl", gs.blame_line, opts "Blame Line")

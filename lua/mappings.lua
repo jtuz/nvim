@@ -68,11 +68,6 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
--- gitsigns
-map("n", "<leader>hb", function()
-  require("gitsigns").blame_line()
-end, { desc = "Blame line" })
-
 -- DAP
 map("n", "<F5>", function()
   require("dap").continue()
