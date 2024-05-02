@@ -14,8 +14,8 @@ autocmd({ "FileType", "BufRead", "BufNewFile" }, {
   end,
 })
 
-autocmd("FileType", {
-  pattern = "gitcommit",
+autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "gitcommit", "COMMIT_EDITMSG" },
   group = commit_group,
   callback = function()
     vim.b.editorconfig = false
@@ -23,14 +23,14 @@ autocmd("FileType", {
   end,
 })
 
-autocmd("BufEnter", {
-  pattern = "COMMIT_EDITMSG",
-  group = commit_group,
-  callback = function()
-    vim.b.editorconfig = false
-    vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
-  end,
-})
+-- autocmd("BufEnter", {
+--   pattern = "COMMIT_EDITMSG",
+--   group = commit_group,
+--   callback = function()
+--     vim.b.editorconfig = false
+--     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
+--   end,
+-- })
 
 -- Go to last location when opening a buffer
 autocmd("BufReadPost", {
