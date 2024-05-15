@@ -6,11 +6,11 @@ local autocmd = vim.api.nvim_create_autocmd
 local commit_group = vim.api.nvim_create_augroup("user_cmds", { clear = true })
 
 autocmd({ "FileType", "BufRead", "BufNewFile" }, {
-  pattern = "*.jenkinsfile",
+  pattern = { "*.jenkinsfile", "*.Jenkinsfile" },
   callback = function()
     local bufnr = vim.api.nvim_get_current_buf()
-    vim.api.nvim_buf_set_option(bufnr, "filetype", "groovy")
-    -- vim.api.nvim_set_option_value("filetype", "groovy", {scope="local", buf=bufnr})
+      -- vim.api.nvim_set_option_value('filetype', 'groovy', { scope = 'local', buf = bufnr })
+      vim.api.nvim_buf_set_option(bufnr, "filetype", "groovy")
   end,
 })
 
