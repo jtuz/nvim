@@ -19,6 +19,7 @@ return {
     "gitignore",
     "go",
     "gomod",
+    "groovy",
     "haskell",
     "html",
     "htmldjango",
