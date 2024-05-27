@@ -166,16 +166,18 @@ return {
     end,
   },
   {
-    -- FIXME: <C-b>, zt, zz, zb shortcuts are failing
+    -- FIXME: <C-b>, zz shortcuts are failing
     "karb94/neoscroll.nvim",
     lazy = true,
-    keys = { "<C-d>", "<C-u>", "<C-e>", "<C-f>", "<C-y>" },
+    keys = { "<C-d>", "<C-u>", "<C-e>", "<C-f>", "<C-y>", "zt", "zb" },
     opts = { mappings = {
       "<C-u>",
       "<C-d>",
       "<C-e>",
       "<C-f>",
       "<C-y>",
+      "zt",
+      "zb",
     } },
   },
   {
