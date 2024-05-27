@@ -5,6 +5,22 @@ return {
     opts = require "configs.gitsigns",
   },
   {
+    "stevearc/conform.nvim",
+    opts = require "configs.formatting",
+    event = "BufWritePre",
+    -- event = { "BufReadPre", "BufNewFile" },
+    config = function(_, opts)
+      require("conform").setup(opts)
+    end,
+  },
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("configs.linting")
+    end,
+  },
+  {
     "nvim-telescope/telescope.nvim",
     opts = require "configs.telescope",
     dependencies = {
@@ -15,8 +31,7 @@ return {
       {
         "debugloop/telescope-undo.nvim",
         config = function()
-          local map = vim.keymap.set
-          map("n", "<leader>fu", "<CMD>Telescope undo<CR>", { desc = "Find undo" })
+          vim.keymap.set("n", "<leader>fu", "<CMD>Telescope undo<CR>", { desc = "Find undo" })
         end,
       },
     },
@@ -45,6 +60,7 @@ return {
     dependencies = {
       {
         "nvimtools/none-ls.nvim",
+        enabled = false,
         dependencies = {
           "nvimtools/none-ls-extras.nvim",
         },
@@ -115,13 +131,6 @@ return {
   {
     "matze/vim-move",
     lazy = false,
-  },
-  {
-    -- TODO: Fix Wezterm conflicts
-    "mg979/vim-visual-multi",
-    branch = "master",
-    lazy = false,
-    enabled = false,
   },
   {
     "godlygeek/tabular",

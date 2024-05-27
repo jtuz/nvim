@@ -35,5 +35,6 @@ return {
 
     -- yaml
     "yaml-language-server",
+    "yamlfmt",
   },
 }
