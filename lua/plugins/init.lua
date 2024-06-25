@@ -1,28 +1,39 @@
 return {
-  ----------- Overwrite defaults ------------
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = require "configs.gitsigns",
-  },
-  {
-    "stevearc/conform.nvim",
-    opts = require "configs.formatting",
-    event = "BufWritePre",
-    -- event = { "BufReadPre", "BufNewFile" },
-    config = function(_, opts)
-      require("conform").setup(opts)
-    end,
-  },
-  {
-    "mfussenegger/nvim-lint",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("configs.linting")
-    end,
-  },
+  ----------- Overriding NvChad defaults ------------
   {
     "nvim-telescope/telescope.nvim",
-    opts = require "configs.telescope",
+    opts = {
+      extensions_list = { "fzf", "undo" },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+      },
+      defaults = {
+        preview = {
+          timeout = 750,
+        },
+        layout_strategy = "vertical",
+        layout_config = {
+          horizontal = {
+            prompt_position = "bottom",
+            preview_width = 0.55,
+            results_width = 0.8,
+          },
+          vertical = {
+            mirror = true,
+            prompt_position = "top",
+            width = 0.7,
+            height = 0.95,
+            preview_height = 0.6,
+            preview_cutoff = 40,
+          },
+        },
+      },
+    },
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
@@ -38,217 +49,130 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    opts = require "configs.nvimtree",
+    opts = {
+      sync_root_with_cwd = false,
+      git = {
+        enable = true,
+      },
+      view = {
+        side = "left",
+        width = 45,
+        relativenumber = true,
+      },
+      renderer = {
+        root_folder_label = function(path)
+          return " " .. vim.fn.fnamemodify(path, ":t")
+        end,
+        highlight_git = true,
+        icons = {
+          show = {
+            git = true,
+          },
+        },
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require "configs.treesitter",
+    opts = {
+      yati = {
+        enable = true,
+        default_fallback = "auto",
+      },
+      indent = {
+        enable = false,
+      },
+      ensure_installed = {
+        "bash",
+        "c",
+        "cmake",
+        "comment",
+        "css",
+        "dockerfile",
+        "git_config",
+        "git_rebase",
+        "gitcommit",
+        "gitignore",
+        "go",
+        "gomod",
+        "groovy",
+        "haskell",
+        "html",
+        "htmldjango",
+        "javascript",
+        "json",
+        "jsonc",
+        "lua",
+        "make",
+        "markdown",
+        "markdown_inline",
+        "nix",
+        "python",
+        "regex",
+        "ruby",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "yaml",
+      },
+    },
     dependencies = {
       { "yioneko/nvim-yati" },
     },
   },
   {
     "williamboman/mason.nvim",
-    opts = require "configs.mason",
+    opts = {
+      ensure_installed = {
+        "shfmt",
+        -- Markdown
+        "marksman",
+        -- lua stuff
+        "lua-language-server",
+        "stylua",
+
+        -- web dev
+        "json-lsp",
+        "html-lsp",
+
+        -- shell
+        "bash-language-server",
+
+        -- python
+        "pyright",
+        "flake8",
+        "isort",
+        "black",
+        "debugpy",
+        "ruff",
+
+        -- Golang
+        "gopls",
+        "goimports",
+        "golines",
+        "delve",
+        "golangci-lint",
+
+        -- xml
+        "lemminx",
+        "powershell-editor-services",
+
+        -- yaml
+        "yaml-language-server",
+        "yamlfmt",
+      },
+    },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    opts = require "configs.blankline",
-  },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      {
-        "nvimtools/none-ls.nvim",
-        enabled = false,
-        dependencies = {
-          "nvimtools/none-ls-extras.nvim",
-        },
-        config = function()
-          require "configs.none-ls"
-        end,
-      },
-      {
-        "simrat39/symbols-outline.nvim",
-        config = function()
-          require("symbols-outline").setup {
-            show_numbers = true,
-            show_relative_numbers = true,
-          }
-        end,
-      },
-      {
-        "utilyre/barbecue.nvim",
-        name = "barbecue",
-        version = "*",
-        event = "LspAttach",
-        opts = {
-          create_autocmd = false,
-          -- configurations go here
-          show_dirname = false,
-          show_basename = false,
-          attach_navic = false,
-          kinds = require "configs.barbecue",
-        },
-        dependencies = {
-          "SmiteshP/nvim-navic",
-          config = function()
-            require("nvim-navic").setup()
-          end,
-        },
-      },
+    opts = {
+      indent = { char = "┊", highlight = "IblChar" },
+      scope = { char = "│", highlight = "IblScopeChar" },
     },
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
   },
   {
     "folke/which-key.nvim",
     enabled = false,
   },
-  ------------ Custom plugins ---------------
-  {
-    "tpope/vim-abolish",
-    lazy = false,
-  },
-  {
-    "tpope/vim-repeat",
-    lazy = false,
-  },
-  {
-    "tpope/vim-fugitive",
-    lazy = false,
-  },
-  {
-    "tpope/vim-sleuth",
-    lazy = false,
-  },
-  {
-    "tommcdo/vim-exchange",
-    lazy = false,
-  },
-  {
-    "matze/vim-move",
-    lazy = false,
-  },
-  {
-    "godlygeek/tabular",
-    lazy = false,
-  },
-  {
-    "gpanders/nvim-parinfer",
-    event = "InsertEnter",
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
-  },
-  {
-    "chentoast/marks.nvim",
-    lazy = false,
-    config = function()
-      require("marks").setup {
-        -- builtin_marks = { ".", "<", ">", "^" },
-        builtin_marks = { " ", " ", " ", " " },
-        mappings = {
-          next = "]'",
-          prev = "['",
-          delete_buf = "m<space>",
-        },
-      }
-    end,
-  },
-  {
-    -- FIXME: <C-b>, zz shortcuts are failing
-    "karb94/neoscroll.nvim",
-    lazy = true,
-    keys = { "<C-d>", "<C-u>", "<C-e>", "<C-f>", "<C-y>", "zt", "zb" },
-    opts = { mappings = {
-      "<C-u>",
-      "<C-d>",
-      "<C-e>",
-      "<C-f>",
-      "<C-y>",
-      "zt",
-      "zb",
-    } },
-  },
-  {
-    "natecraddock/sessions.nvim",
-    lazy = false,
-    config = function()
-      require("sessions").setup {
-        events = { "WinEnter" },
-        session_filepath = ".nvim/session",
-      }
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    lazy = false,
-    config = function()
-      require("dapui").setup()
-      require("dap.ext.vscode").load_launchjs(".nvim/launch.json", nil)
-    end,
-    dependencies = {
-      { "nvim-neotest/nvim-nio" },
-      {
-        "mfussenegger/nvim-dap",
-        config = function()
-          require "configs.dap_config"
-        end,
-      },
-      {
-        "mfussenegger/nvim-dap-python",
-        config = function()
-          local mason_venv_path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
-          require("dap-python").setup(mason_venv_path)
-        end,
-      },
-      {
-        "leoluz/nvim-dap-go",
-        ft = "go",
-        config = function(_, opts)
-          require("dap-go").setup(opts)
-        end,
-      },
-    },
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
-  },
-  -- {
-  --   "folke/todo-comments.nvim",
-  --   lazy = false,
-  --   opts = {
-  --     -- your configuration comes here
-  --     -- or leave it empty to use the default settings
-  --     -- refer to the configuration section below
-  --   },
- {
-    "folke/trouble.nvim",
-    cmd = { "Trouble", "TodoTrouble" },
-    dependencies = {
-      {
-        "folke/todo-comments.nvim",
-        opts = {},
-      },
-    },
-    config = function()
-      require("trouble").setup()
-    end,
-  }, -- },
 }

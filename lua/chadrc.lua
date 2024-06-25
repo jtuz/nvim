@@ -4,13 +4,13 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "kanagawa" },
-  theme = "kanagawa",
+  theme_toggle = { "gruvchad", "everblush" },
+  theme = "everblush",
   transparency = false,
   hl_override = require("custom_ui.highlights").override,
   hl_add = require("custom_ui.highlights").add,
   cmp = {
-    lspkind_text = false,
+    -- lspkind_text = false,
     style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
   },
   telescope = {
