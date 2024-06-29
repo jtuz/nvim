@@ -4,14 +4,16 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "everblush" },
-  theme = "everblush",
+  theme_toggle = { "gruvchad", "gruvbox" },
+  theme = "gruvbox",
   transparency = false,
   hl_override = require("custom_ui.highlights").override,
   hl_add = require("custom_ui.highlights").add,
   cmp = {
     -- lspkind_text = false,
     style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
+    icons = true,
+    lspkind_text = true,
   },
   telescope = {
     style = "bordered", -- borderless / bordered
@@ -70,6 +72,14 @@ M.ui = {
   },
   lsp = {
     signature = true,
+  }
+}
+
+M.base46 = {
+  integrations = {
+    "dap",
+    "trouble",
+    "todo",
   }
 }
 

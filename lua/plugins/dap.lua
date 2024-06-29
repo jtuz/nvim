@@ -3,6 +3,7 @@ return {
     "mfussenegger/nvim-dap",
     lazy = false,
     config = function()
+      dofile(vim.g.base46_cache .. "dap")
       local dap, dapui = require "dap", require "dapui"
       local map = vim.keymap.set
 
