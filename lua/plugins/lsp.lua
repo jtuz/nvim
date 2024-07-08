@@ -3,6 +3,16 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
+        "simrat39/symbols-outline.nvim",
+        config = function()
+          require("symbols-outline").setup {
+            show_numbers = true,
+            show_relative_numbers = true,
+          }
+        vim.keymap.set("n", "<leader>so", "<cmd> SymbolsOutline<CR>", { desc = "Symbols Outline" })
+        end,
+      },
+      {
         "utilyre/barbecue.nvim",
         name = "barbecue",
         version = "*",
