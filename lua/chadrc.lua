@@ -4,8 +4,8 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "gruvbox" },
-  theme = "gruvbox",
+  theme_toggle = { "gruvchad", "everblush" },
+  theme = "everblush",
   transparency = false,
   hl_override = require("custom_ui.highlights").override,
   hl_add = require("custom_ui.highlights").add,

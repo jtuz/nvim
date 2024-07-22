@@ -108,6 +108,7 @@ return {
         "markdown_inline",
         "nix",
         "python",
+        "powershell",
         "regex",
         "ruby",
         "scss",
