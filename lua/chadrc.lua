@@ -1,14 +1,22 @@
 ---@type ChadrcConfig
 local M = {}
 
--- ui configs
-M.ui = {
+M.base46 = {
+  theme = "everblush",
   -- theme to be used, check available themes with `<leader> + t + h`
   theme_toggle = { "gruvchad", "everblush" },
-  theme = "everblush",
   transparency = false,
   hl_override = require("custom_ui.highlights").override,
   hl_add = require("custom_ui.highlights").add,
+  integrations = {
+    "dap",
+    "trouble",
+    "todo",
+  },
+}
+
+-- ui configs
+M.ui = {
   cmp = {
     -- lspkind_text = false,
     style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
@@ -20,20 +28,31 @@ M.ui = {
   },
   -- https://github.com/NvChad/NvChad/commit/16fadf9e0d53cf65a954486952ac3eba36d46788#commitcomment-139350293
   statusline = {
-    theme = "default",         -- default/vscode/vscode_colored/minimal
+    theme = "default", -- default/vscode/vscode_colored/minimal
     separator_style = "block", -- default/round/block/arrow
-    order = { "mode", "customFile", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "customCwd", "customCursorPosition" },
+    order = {
+      "mode",
+      "customFile",
+      "git",
+      "%=",
+      "lsp_msg",
+      "%=",
+      "diagnostics",
+      "lsp",
+      "customCwd",
+      "customCursorPosition",
+    },
     modules = {
-      customFile = function ()
+      customFile = function()
         return require("custom_ui.statusline").FileInfo()
       end,
-      customCwd = function ()
+      customCwd = function()
         return require("custom_ui.statusline").Cwd()
       end,
-      customCursorPosition = function ()
+      customCursorPosition = function()
         return require("custom_ui.statusline").CursorPosition()
-      end
-    }
+      end,
+    },
   },
   tabufline = {
     order = { "treeOffset", "buffers", "tabs" },
@@ -72,15 +91,8 @@ M.ui = {
   },
   lsp = {
     signature = true,
-  }
-}
-
-M.base46 = {
-  integrations = {
-    "dap",
-    "trouble",
-    "todo",
-  }
+  },
+  mason = { cmd = true, pkgs = {} },
 }
 
 return M
