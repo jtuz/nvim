@@ -1,7 +1,6 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+require("nvchad.configs.lspconfig").defaults()
 
+local nvlsp = require("nvchad.configs.lspconfig")
 local lspconfig = require "lspconfig"
 local util = require 'lspconfig/util'
 
@@ -85,13 +84,13 @@ local servers = {
 for server, config in pairs(servers) do
   lspconfig[server].setup({
     on_attach = function(client, bufnr)
-      on_attach(client, bufnr)
+      nvlsp.on_attach(client, bufnr)
       if client.server_capabilities.documentSymbolProvider then
         require("nvim-navic").attach(client, bufnr)
       end
     end,
-    capabilities = capabilities,
-    on_init = on_init,
+    capabilities = nvlsp.capabilities,
+    on_init = nvlsp.on_init,
     handlers = {
       ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
         -- Disable virtual_text
@@ -109,16 +108,8 @@ for server, config in pairs(servers) do
 end
 
 lspconfig.powershell_es.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-    on_init = on_init,
+    on_attach = nvlsp.on_attach,
+    capabilities = nvlsp.capabilities,
+    on_init = nvlsp.on_init,
     bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services/"
 }
-
--- custom typescript  example
--- lspconfig.tsserver.setup {
---   cmd = { "typescript-language-server", "--stdio" },
---   filetypes = {"typescriptreact", "typescript.tsx"},
---   root_dir = root_pattern("package.json", "tsconfig.json")
--- }
-
