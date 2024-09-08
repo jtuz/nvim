@@ -20,6 +20,8 @@ local platform = function ()
     os_icon = ""
   elseif op_sys.OSX() then
     os_icon = " " -- Note: the previous space is needed in Macos platform
+  elseif op_sys.WINDOWS() then
+    os_icon = ""
   end
 
   return  "%#St_cwd_text#" .. os_icon
