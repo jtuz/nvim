@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "everblush",
+  theme = "nightowl",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "everblush" },
+  theme_toggle = { "gruvchad", "nightowl" },
   transparency = false,
   hl_override = require("custom_ui.highlights").override,
   hl_add = require("custom_ui.highlights").add,
@@ -12,6 +12,7 @@ M.base46 = {
     "dap",
     "trouble",
     "todo",
+    "codeactionmenu",
   },
 }
 
@@ -89,10 +90,17 @@ M.ui = {
       { "  Themes", "Spc t h", "Telescope themes" },
     },
   },
-  lsp = {
-    signature = true,
+}
+M.lsp = {
+  signature = true,
+}
+M.mason = {
+  cmd = true,
+  pkgs = {
+    "debugpy",
+    "ruff",
+    "delve",
   },
-  mason = { cmd = true, pkgs = {} },
 }
 
 return M

@@ -123,56 +123,6 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "shfmt",
-        -- Markdown
-        "marksman",
-        -- lua stuff
-        "lua-language-server",
-        "stylua",
-
-        -- web dev
-        "json-lsp",
-        "html-lsp",
-
-        -- shell
-        "bash-language-server",
-
-        -- python
-        "pyright",
-        "flake8",
-        "isort",
-        "black",
-        "debugpy",
-        "ruff",
-
-        -- Golang
-        "gopls",
-        "goimports",
-        "golines",
-        "delve",
-        "golangci-lint",
-
-        -- xml
-        "lemminx",
-        "powershell-editor-services",
-
-        -- yaml
-        "yaml-language-server",
-        "yamlfmt",
-      },
-    },
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    opts = {
-      indent = { char = "┊", highlight = "IblChar" },
-      scope = { char = "│", highlight = "IblScopeChar" },
-    },
-  },
-  {
     "folke/which-key.nvim",
     enabled = false,
   },
