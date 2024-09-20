@@ -1,8 +1,8 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local nvlsp = require("nvchad.configs.lspconfig")
+local nvlsp = require "nvchad.configs.lspconfig"
 local lspconfig = require "lspconfig"
-local util = require 'lspconfig/util'
+local util = require "lspconfig/util"
 
 local function sif(config, server)
   if config.settings then
@@ -45,7 +45,14 @@ local servers = {
     },
   },
   bashls = {},
-  jsonls = {},
+  jsonls = {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  },
   marksman = {},
   lemminx = {},
   html = {
@@ -54,6 +61,14 @@ local servers = {
   yamlls = {
     settings = {
       yaml = {
+        schemaStore = {
+          -- You must disable built-in schemaStore support if you want to use
+          -- this plugin and its advanced options like `ignore`.
+          enable = false,
+          -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+          url = "",
+        },
+        schemas = require("schemastore").yaml.schemas(),
         customTags = {
           "!Base64 scalar",
           "!Cidr scalar",
@@ -82,7 +97,7 @@ local servers = {
 }
 
 for server, config in pairs(servers) do
-  lspconfig[server].setup({
+  lspconfig[server].setup {
     on_attach = function(client, bufnr)
       nvlsp.on_attach(client, bufnr)
       if client.server_capabilities.documentSymbolProvider then
@@ -104,12 +119,12 @@ for server, config in pairs(servers) do
     },
     settings = sif(config, lspconfig[server]),
     filetypes = fif(config, lspconfig[server]),
-  })
+  }
 end
 
-lspconfig.powershell_es.setup{
-    on_attach = nvlsp.on_attach,
-    capabilities = nvlsp.capabilities,
-    on_init = nvlsp.on_init,
-    bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services/"
+lspconfig.powershell_es.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  on_init = nvlsp.on_init,
+  bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services/",
 }

@@ -2,12 +2,23 @@
 local M = {}
 
 M.base46 = {
-  theme = "nightowl",
+  theme = "tokyonight",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "nightowl" },
+  theme_toggle = { "gruvchad", "tokyonight" },
   transparency = false,
-  hl_override = require("custom_ui.highlights").override,
-  hl_add = require("custom_ui.highlights").add,
+  hl_override = {
+    Comment = { italic = true, fg = "grey_fg" },
+    ["@comment"] = { italic = true, fg = "grey_fg"  },
+    NvDashAscii = { bg = "#0E2738", fg = "red" },
+    NvDashButtons = { bg = "#17415E", fg = "white" },
+    NvimTreeRootFolder = { fg = "green" },
+    WinBar = {
+      bg = "statusline_bg",
+    },
+  },
+  hl_add = {
+    Nvim_navic = { fg = "red", bg = "statusline_bg" },
+  },
   integrations = {
     "dap",
     "trouble",
