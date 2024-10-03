@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "ayu_dark",
+  theme = "kanagawa",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "ayu_dark" },
+  theme_toggle = { "gruvchad", "kanagawa" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -41,7 +41,7 @@ M.ui = {
   -- https://github.com/NvChad/NvChad/commit/16fadf9e0d53cf65a954486952ac3eba36d46788#commitcomment-139350293
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
-    separator_style = "block", -- default/round/block/arrow
+    separator_style = "default", -- default/round/block/arrow
     order = {
       "mode",
       "customFile",

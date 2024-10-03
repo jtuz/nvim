@@ -34,7 +34,7 @@ local lang_translation = function ()
   if not spell then
     return ""
   end
-  return "%#St_file#" .. "󰇝 󰓆" .. spelllang .. "%#St_file_sep#" .. sep_r
+  return "%#St_file#" .. "󰇝 󰓆" .. spelllang .. " " .. "%#St_file_sep#" .. sep_r
 end
 
 local M = {}
@@ -47,14 +47,16 @@ end
 
 M.Cwd = function ()
   local icon = "%#St_cwd_icon#" .. "󰉋 "
-  local name = "%#St_cwd_text#" .. " " .. vim.loop.cwd():match ".+/(.-)$" .. " "
+  local name = "%#St_cwd_text#" .. " " .. vim.uv.cwd():match ".+/(.-)$" .. " "
   local cwd = (vim.o.columns > 85 and ("%#St_cwd_sep#" .. sep_l .. icon .. name)) or ""
+
   return cwd .. "󰇝" .. platform() .. " "
 end
 
 M.CursorPosition = function()
   local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
   local text = vim.o.columns > 140 and "%l:%c" or ""
+
   return left_sep .. "%#St_Pos_txt# " .. text .. " "
 end
 
