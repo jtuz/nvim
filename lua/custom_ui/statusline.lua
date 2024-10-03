@@ -19,7 +19,7 @@ local platform = function ()
   if op_sys.LINUX() then
     os_icon = ""
   elseif op_sys.OSX() then
-    os_icon = " " -- Note: the previous space is needed in Macos platform
+    os_icon = ""
   elseif op_sys.WINDOWS() then
     os_icon = ""
   end
