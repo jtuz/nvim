@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "kanagawa",
+  theme = "oceanic-next",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "kanagawa" },
+  theme_toggle = { "gruvchad", "oceanic-next" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },

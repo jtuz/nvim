@@ -29,6 +29,7 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 dofile(vim.g.base46_cache .. "todo")
+dofile(vim.g.base46_cache .. "codeactionmenu")
 
 require "options"
 require "autocmds"
