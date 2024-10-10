@@ -73,7 +73,7 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
-  pattern = { "help", "man", "gitsigns.blame"},
+  pattern = { "help", "man", "gitsigns-blame"},
   command = "nnoremap <buffer> gq <cmd>quit<cr>",
 })
 
