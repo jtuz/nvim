@@ -24,15 +24,6 @@ autocmd({ "FileType", "BufEnter" }, {
   end,
 })
 
--- autocmd("BufEnter", {
---   pattern = "COMMIT_EDITMSG",
---   group = commit_group,
---   callback = function()
---     vim.b.editorconfig = false
---     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
---   end,
--- })
-
 -- Go to last location when opening a buffer
 autocmd("BufReadPost", {
   callback = function()
@@ -41,19 +32,6 @@ autocmd("BufReadPost", {
     if mark[1] > 0 and mark[1] <= lcount then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
-  end,
-})
-
--- File extension specific tabbing
-autocmd("Filetype", {
-  pattern = "python",
-  callback = function()
-    vim.opt_local.foldlevel = 9
-    vim.opt_local.foldmethod = "indent"
-    vim.opt_local.expandtab = true
-    vim.opt_local.tabstop = 4
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.softtabstop = 4
   end,
 })
 
