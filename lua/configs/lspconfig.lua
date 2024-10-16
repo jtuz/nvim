@@ -113,7 +113,7 @@ for server, config in pairs(servers) do
       }),
     },
     -- root_dir = vim.loop.cwd
-    root_dir = util.find_git_ancestor,
+    -- root_dir = util.find_git_ancestor,
     flags = {
       debounce_text_changes = 150,
     },

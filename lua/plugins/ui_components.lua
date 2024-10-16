@@ -1,5 +1,17 @@
 return {
   {
+    "grafana/vim-alloy",
+    lazy = false,
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    ft = "markdown", -- If you decide to lazy-load anyway
+    config = function()
+      dofile(vim.g.base46_cache .. "markview")
+      require("markview").setup()
+    end,
+  },
+  {
     "chentoast/marks.nvim",
     lazy = false,
     config = function()

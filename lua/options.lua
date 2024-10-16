@@ -44,13 +44,6 @@ opt.updatetime = 200
 opt.relativenumber = true
 opt.tabstop = 4
 
--- Fold options
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldtext = ""
-opt.foldlevel = 99
-opt.foldlevelstart = 1
-
 -- Abbrev
 cmd "cnoreabbrev Q  q"
 cmd "cnoreabbrev q1  q!"

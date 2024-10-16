@@ -20,10 +20,11 @@ M.base46 = {
     Nvim_navic = { fg = "red", bg = "statusline_bg" },
   },
   integrations = {
+    "codeactionmenu",
     "dap",
+    "markview",
     "trouble",
     "todo",
-    "codeactionmenu",
   },
 }
 
