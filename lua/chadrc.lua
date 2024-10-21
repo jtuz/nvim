@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "ayu_dark",
+  theme = "tokyonight",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "ayu_dark" },
+  theme_toggle = { "gruvchad", "tokyonight" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
