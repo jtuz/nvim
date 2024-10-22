@@ -4,18 +4,8 @@ local g = vim.g
 local opt = vim.opt
 local cmd = vim.cmd
 
-----------------Nvim providers----------------
--- Due I use pyenv and rbenv, to avoid
--- install nvim modules for each virtualenv,
--- I declare a global prodiver for neovim
-
--- Python
-g.python3_host_prog = "/usr/bin/python3"
--- Ruby
-g.ruby_host_prog = "/usr/bin/ruby"
---
--- Disable providers we do not give a shit about
-g.loaded_perl_provider = 0
+-- Some providers are disabled by default in NvChad
+-- https://github.com/NvChad/NvChad/blob/09dd13e9c6df98fe5609829a7a0fbccea2f515ae/lua/nvchad/options.lua#L47
 
 -- Vim Move by matze
 g.move_key_modifier = "A"

@@ -5,7 +5,8 @@ local sep_style = "block"
 local default_sep_icons = {
   default = { left = "", right = " " },
   round = { left = "", right = "" },
-  block = { left = "█", right = "█" },
+  block = { left = "█", right = " " },
+  -- block = { left = "█", right = "█" },
   arrow = { left = "", right = "" },
 }
 
@@ -34,7 +35,7 @@ local lang_translation = function ()
   if not spell then
     return ""
   end
-  return "%#St_file#" .. "󰇝 󰓆" .. spelllang .. " " .. "%#St_file_sep#" .. sep_r
+  return "%#St_Lsp#" .. " 󰓆" .. spelllang .. " " .. "%#St_file_sep#"
 end
 
 local M = {}
