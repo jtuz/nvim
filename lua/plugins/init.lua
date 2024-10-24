@@ -49,6 +49,7 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
+    -- enabled = false,
     opts = {
       sync_root_with_cwd = false,
       git = {

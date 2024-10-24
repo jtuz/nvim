@@ -28,11 +28,24 @@ map("n", "<leader>tv", function()
 end, { desc = "Terminal New vertical window" })
 
 -- Telescope
-map("n", "<leader>sy", "<cmd> Telescope lsp_document_symbols<CR>", { desc = "Find document symbols" })
-map("n", "<leader>gr", "<cmd> Telescope lsp_references<CR>", { desc = "Find document references" })
-map("n", "<leader>dg", "<cmd> Telescope diagnostics<CR>", { desc = " Document diagnostics" })
-map("n", "<leader>fg", "<cmd> Telescope git_files<CR>", { desc = "Find git files" })
-map("n", "<leader>gs", "<cmd> Telescope git_status<CR>", { desc = "Git status" })
+map("n", "<leader>sy", function ()
+  require("telescope.builtin").lsp_document_symbols()
+end, { desc = "Find document symbols" })
+map("n", "<leader>gr", function ()
+  require("telescope.builtin").lsp_references()
+end, { desc = "Find document references" })
+map("n", "<leader>dg", function ()
+  require("telescope.builtin").diagnostics()
+end, { desc = " Document diagnostics" })
+map("n", "<leader>gf", function()
+  require("telescope.builtin").git_files()
+end, { desc = "Find git files" })
+map("n", "<leader>gs", function()
+  require("telescope.builtin").git_status()
+end, { desc = "Git status" })
+map("n", "<leader>sp", function()
+  require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor {})
+end, { desc = "Spelling Suggestions" })
 
 -- Nvim tree
 map("n", "<leader>ft", "<cmd> NvimTreeToggle <CR>", { desc = "toggle nvimtree" })
@@ -57,8 +70,8 @@ map("n", "<Right>", "<NOP>", { desc = "Disable Right" })
 map("n", "<leader>jq", "<Esc><cmd>%!jq .<CR><Esc><cmd> set filetype=json<CR>", { desc = "Format Json" })
 
 -- Misc
-map("v", ">", ">gv", { desc= "Does not exist visual mode"})
-map("v", "<", "<gv", { desc= "Does not exist visual mode"})
+map("v", ">", ">gv", { desc = "Does not exist visual mode" })
+map("v", "<", "<gv", { desc = "Does not exist visual mode" })
 
 -- navigate within insert mode
 map("i", "<C-h>", "<Left>", { desc = "move left" })
