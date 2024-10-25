@@ -27,12 +27,16 @@ opt.autoindent = true
 opt.colorcolumn = "+1"
 opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
+
 -- triggers CursorHold event faster
 opt.updatetime = 200
 
 -- Override NvChad default settings
 opt.relativenumber = true
+opt.expandtab = true
 opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
 
 -- Abbrev
 cmd "cnoreabbrev Q  q"
@@ -47,3 +51,11 @@ cmd "cnoreabbrev Set set"
 cmd "cnoreabbrev SEt set"
 cmd "cnoreabbrev SET set"
 
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}

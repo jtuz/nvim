@@ -27,7 +27,7 @@ return {
           else
             gs.nav_hunk "next"
           end
-        end)
+        end, { desc = "Next Hunk" })
 
         map("n", "[c", function()
           if vim.wo.diff then
@@ -35,7 +35,7 @@ return {
           else
             gs.nav_hunk "prev"
           end
-        end)
+        end, { desc = "Prev Hunk"})
 
         map("n", "<leader>rh", gs.reset_hunk, opts "Reset Hunk")
         map("n", "<leader>ph", gs.preview_hunk, opts "Preview Hunk")
