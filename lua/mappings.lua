@@ -70,8 +70,8 @@ map("n", "<Right>", "<NOP>", { desc = "Disable Right" })
 map("n", "<leader>jq", "<Esc><cmd>%!jq .<CR><Esc><cmd> set filetype=json<CR>", { desc = "Format Json" })
 
 -- Misc
-map("v", ">", ">gv", { desc = "Does not exist visual mode" })
-map("v", "<", "<gv", { desc = "Does not exist visual mode" })
+map("v", ">", ">gv", { desc = "Doesn't exit visual mode" })
+map("v", "<", "<gv", { desc = "Doesn't exit visual mode" })
 
 -- navigate within insert mode
 map("i", "<C-h>", "<Left>", { desc = "move left" })

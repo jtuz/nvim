@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "tokyonight",
+  theme = "gruvbox",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "tokyonight" },
+  theme_toggle = { "gruvchad", "gruvbox" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -105,6 +105,19 @@ M.nvdash = {
     { txt = "  Git Files", keys = "Spc f g", cmd = "Telescope git_files" },
     { txt = "  File Tree", keys = "Spc f t", cmd = "NvimTreeToggle" },
     { txt = "  Themes", keys = "Spc t h", cmd = "Telescope themes" },
+    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+
+    {
+      txt = function()
+        local stats = require("lazy").stats()
+        local ms = math.floor(stats.startuptime) .. " ms"
+        return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+      end,
+      hl = "NvDashFooter",
+      no_gap = true,
+    },
+
+    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
   },
 }
 
