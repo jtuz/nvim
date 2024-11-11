@@ -48,4 +48,12 @@ return {
     "tpope/vim-fugitive",
     lazy = false,
   },
+  {
+    "sindrets/diffview.nvim",
+    lazy = false,
+    config = function ()
+      dofile(vim.g.base46_cache .. "diffview")
+      require("diffview").setup()
+    end
+  }
 }

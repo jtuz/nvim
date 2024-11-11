@@ -22,6 +22,9 @@ return {
         black = {
           prepend_args = { "--fast" },
         },
+        golines = {
+          prepend_args = { "--max-len=110" },
+        },
       },
     },
     event = "BufWritePre",

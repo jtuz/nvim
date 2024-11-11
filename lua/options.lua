@@ -22,11 +22,20 @@ opt.inccommand = "nosplit"
 opt.wrap = false -- Do not wrap long lines
 opt.list = true
 opt.listchars = { eol = "↲", tab = "» ", trail = "·", extends = "▸", nbsp = "." }
+opt.fillchars = {
+  vert = "▕", -- alternatives │
+  msgsep = "‾",
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = "│",
+  diff = "╱",
+  eob = " ",
+}
 opt.diffopt = { "internal", "filler", "closeoff", "linematch:60" }
 opt.autoindent = true
 opt.colorcolumn = "+1"
 opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
-
 
 -- triggers CursorHold event faster
 opt.updatetime = 200
@@ -50,12 +59,3 @@ cmd "cnoreabbrev WQ wq"
 cmd "cnoreabbrev Set set"
 cmd "cnoreabbrev SEt set"
 cmd "cnoreabbrev SET set"
-
-opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
-}

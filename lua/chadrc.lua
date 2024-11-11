@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "gruvbox",
+  theme = "everblush",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "gruvbox" },
+  theme_toggle = { "gruvchad", "everblush" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -22,6 +22,7 @@ M.base46 = {
   integrations = {
     "codeactionmenu",
     "dap",
+    "diffview",
     "markview",
     "trouble",
     "todo",
