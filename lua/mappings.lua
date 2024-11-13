@@ -65,6 +65,11 @@ map("n", "<Up>", "<NOP>", { desc = "Disable Up" })
 map("n", "<Down>", "<NOP>", { desc = "Disaple Down" })
 map("n", "<Left>", "<NOP>", { desc = "Disable Left" })
 map("n", "<Right>", "<NOP>", { desc = "Disable Right" })
+--
+-- Normally these are not good mappings, but I have left/right on my thumb
+-- cluster, so navigating tabs is quite easy this way.
+map("n", "<left>", "gT")
+map("n", "<right>", "gt")
 
 -- Personal Tools
 map("n", "<leader>jq", "<Esc><cmd>%!jq .<CR><Esc><cmd> set filetype=json<CR>", { desc = "Format Json" })

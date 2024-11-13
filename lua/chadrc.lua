@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "everblush",
+  theme = "nightfox",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "everblush" },
+  theme_toggle = { "gruvchad", "nightfox" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -15,6 +15,7 @@ M.base46 = {
     WinBar = {
       bg = "statusline_bg",
     },
+    WinSeparator = { fg="nord_blue" }
   },
   hl_add = {
     Nvim_navic = { fg = "red", bg = "statusline_bg" },
