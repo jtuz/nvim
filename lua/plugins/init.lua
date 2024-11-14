@@ -49,6 +49,7 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
+    -- disable nvim-tree and enable netrw to download spell files
     -- enabled = false,
     opts = {
       sync_root_with_cwd = false,

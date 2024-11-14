@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "nightfox",
+  theme = "srcery",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "nightfox" },
+  theme_toggle = { "gruvchad", "srcery" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
