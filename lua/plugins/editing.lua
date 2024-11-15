@@ -1,15 +1,15 @@
 return {
   {
     "tommcdo/vim-exchange",
-    lazy = false,
+    event = "VeryLazy",
   },
   {
     "matze/vim-move",
-    lazy = false,
+    event = "VeryLazy",
   },
   {
     "godlygeek/tabular",
-    lazy = false,
+    event = "VeryLazy",
   },
   {
     "gpanders/nvim-parinfer",

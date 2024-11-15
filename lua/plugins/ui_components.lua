@@ -44,21 +44,20 @@ return {
     },
   },
   {
+    "folke/todo-comments.nvim",
+    lazy = false,
+    opts = {},
+    config = function()
+      dofile(vim.g.base46_cache .. "todo")
+      require("todo-comments").setup()
+    end,
+  },
+  {
     "folke/trouble.nvim",
     cmd = { "Trouble", "TodoTrouble" },
-    dependencies = {
-      {
-        "folke/todo-comments.nvim",
-        opts = {},
-      },
-    },
     config = function()
       dofile(vim.g.base46_cache .. "trouble")
       require("trouble").setup()
     end,
-  },
-  {
-    "stevearc/qf_helper.nvim",
-    opts = {},
   },
 }

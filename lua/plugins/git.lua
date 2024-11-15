@@ -35,7 +35,7 @@ return {
           else
             gs.nav_hunk "prev"
           end
-        end, { desc = "Prev Hunk"})
+        end, { desc = "Prev Hunk" })
 
         map("n", "<leader>rh", gs.reset_hunk, opts "Reset Hunk")
         map("n", "<leader>ph", gs.preview_hunk, opts "Preview Hunk")
@@ -50,10 +50,10 @@ return {
   },
   {
     "sindrets/diffview.nvim",
-    lazy = false,
-    config = function ()
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    config = function()
       dofile(vim.g.base46_cache .. "diffview")
       require("diffview").setup()
-    end
-  }
+    end,
+  },
 }

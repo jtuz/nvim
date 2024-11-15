@@ -3,11 +3,12 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
-        "b0o/schemastore.nvim",
+        "b0o/schemastore.nvim", -- used for yamlls & jsonls
         lazy = false,
       },
       {
         "simrat39/symbols-outline.nvim",
+        event = "LspAttach",
         config = function()
           require("symbols-outline").setup {
             show_numbers = true,
