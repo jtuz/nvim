@@ -3,11 +3,11 @@ return {
     "lewis6991/gitsigns.nvim",
     opts = {
       signs = {
-        add = { text = "" },
-        change = { text = "" },
-        delete = { text = "󰍵" },
+        add = { text = "" },
+        change = { text = "󰦒" },
+        delete = { text = "" },
         topdelete = { text = "‾" },
-        changedelete = { text = "~" },
+        changedelete = { text = "󱕖" },
         untracked = { text = "│" },
       },
 
@@ -49,6 +49,7 @@ return {
     lazy = false,
   },
   {
+    enabled = false,
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     config = function()
