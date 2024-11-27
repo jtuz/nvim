@@ -25,8 +25,8 @@ opt.listchars = { eol = "↲", tab = "» ", trail = "·", extends = "▸", nbsp 
 opt.fillchars = {
   vert = "▕", -- alternatives │
   msgsep = "‾",
-  foldopen = "",
-  foldclose = "",
+  foldopen = "",
+  foldclose = "",
   fold = " ",
   foldsep = "│",
   diff = "╱",
