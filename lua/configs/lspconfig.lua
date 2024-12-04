@@ -44,7 +44,9 @@ local servers = {
       },
     },
   },
-  bashls = {},
+  bashls = {
+    filetypes = { "sh", "zsh", "bash" },
+  },
   jsonls = {
     settings = {
       json = {
@@ -140,6 +142,9 @@ for server, config in pairs(servers) do
       ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
         -- Disable virtual_text
         virtual_text = false,
+        underline = false,
+        signs = true,
+        update_in_insert = false,
       }),
     },
     -- root_dir = vim.loop.cwd
