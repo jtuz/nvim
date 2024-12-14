@@ -49,6 +49,7 @@ return {
       profiler = { enabled = false },
       quickfile = { enabled = true },
       rename = { enabled = false },
+      scroll = { enabled = false },
       statuscolumn = { enabled = true },
       terminal = { enabled = false },
       toggle = { enabled = false },
