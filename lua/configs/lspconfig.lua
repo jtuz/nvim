@@ -2,7 +2,7 @@ require("nvchad.configs.lspconfig").defaults()
 
 local nvlsp = require "nvchad.configs.lspconfig"
 local lspconfig = require "lspconfig"
-local util = require "lspconfig/util"
+-- local util = require "lspconfig/util"
 
 local function sif(config, server)
   if config.settings then
