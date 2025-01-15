@@ -27,6 +27,7 @@ return {
       -- or leave it empty to use the default settings
       bigfile = { enabled = false },
       bufdelete = { enabled = false },
+      dashboard = { enabled = fale },
       debug = { enabled = false },
       dim = { enabled = true },  -- NOTE: use it!
       git = { enabled = false },
@@ -50,7 +51,12 @@ return {
       quickfile = { enabled = true },
       rename = { enabled = false },
       scroll = { enabled = false },
-      statuscolumn = { enabled = true },
+      statuscolumn = {
+        enabled = true,
+        folds = {
+          open = true,
+        }
+      },
       terminal = { enabled = false },
       toggle = { enabled = false },
       win = { enabled = false },
