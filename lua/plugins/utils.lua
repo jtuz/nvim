@@ -27,7 +27,7 @@ return {
       -- or leave it empty to use the default settings
       bigfile = { enabled = false },
       bufdelete = { enabled = false },
-      dashboard = { enabled = fale },
+      dashboard = { enabled = false },
       debug = { enabled = false },
       dim = { enabled = true },  -- NOTE: use it!
       git = { enabled = false },
