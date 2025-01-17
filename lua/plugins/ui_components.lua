@@ -27,10 +27,10 @@ return {
     end,
   },
   {
-    -- FIXME: <C-b>, zz shortcuts are failing
+    -- NOTE: <C-b> is disabled due wezterm conflicts
     "karb94/neoscroll.nvim",
     lazy = true,
-    keys = { "<C-d>", "<C-u>", "<C-e>", "<C-f>", "<C-y>", "zt", "zb" },
+    keys = { "<C-d>", "<C-u>", "<C-e>", "<C-f>", "<C-y>", "zt", "zb", "zz" },
     opts = {
       mappings = {
         "<C-u>",
@@ -40,6 +40,7 @@ return {
         "<C-y>",
         "zt",
         "zb",
+        "zz",
       },
     },
   },
@@ -59,5 +60,22 @@ return {
       dofile(vim.g.base46_cache .. "trouble")
       require("trouble").setup()
     end,
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>so",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+    },
   },
 }
