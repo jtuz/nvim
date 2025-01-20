@@ -55,7 +55,7 @@ return {
   },
   {
     "folke/trouble.nvim",
-    cmd = { "Trouble" },
+    cmd = { "Trouble", "TodoTrouble" },
     config = function()
       dofile(vim.g.base46_cache .. "trouble")
       require("trouble").setup()

@@ -87,7 +87,7 @@ return {
         "bash",
         "c",
         "cmake",
-        "comment",
+       "comment",
         "css",
         "dockerfile",
         "editorconfig",
