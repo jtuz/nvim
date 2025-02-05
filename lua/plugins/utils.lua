@@ -29,39 +29,42 @@ return {
       bufdelete = { enabled = false },
       dashboard = { enabled = false },
       debug = { enabled = false },
-      dim = { enabled = true },  -- NOTE: use it!
+      dim = { enabled = true }, -- NOTE: use it!
       git = { enabled = false },
       gitbrowse = { enabled = false },
-      health = { enabled= false },
-      indent = { enabled= false },
-      input = { enabled= false },
+      health = { enabled = false },
+      indent = { enabled = false },
+      input = { enabled = false },
+      layout = { enabled = false },
       lazygit = {
         enabled = true,
         configure = true,
         config = {
           gui = {
-            border = "double"
-          }
+            border = "double",
+          },
         },
-        theme_path = vim.fs.normalize(vim.fn.stdpath("cache") .. "/lazygit-theme.yml"),
+        theme_path = vim.fs.normalize(vim.fn.stdpath "cache" .. "/lazygit-theme.yml"),
       },
       notify = { enabled = false },
       notifier = { enabled = false },
+      picker = { enabled = true },
       profiler = { enabled = false },
       quickfile = { enabled = true },
       rename = { enabled = false },
       scroll = { enabled = false },
+      scratch = { enabled = false },
       statuscolumn = {
         enabled = true,
         folds = {
           open = true,
-        }
+        },
       },
       terminal = { enabled = false },
       toggle = { enabled = false },
       win = { enabled = false },
       words = { enabled = false },
-      zen = { enabled = false }
+      zen = { enabled = false },
     },
     keys = {
       {
@@ -73,10 +76,11 @@ return {
       },
       {
         "<leader>lf",
-        function ()
+        function()
           Snacks.lazygit.log_file()
-        end
-      }
+        end,
+        desc = "Git file history",
+      },
     },
   },
 }

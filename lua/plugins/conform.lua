@@ -16,6 +16,7 @@ return {
         -- Use a sub-list to run only the first available formatter
         -- javascript = { { "prettierd", "prettier" } },
         go = { "gofmt", "goimports", "golines" },
+        json = { "jq" },
         yaml = { "yamlfmt" },
       },
       formatters = {

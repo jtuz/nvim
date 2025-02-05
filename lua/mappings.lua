@@ -20,11 +20,11 @@ nomap("n", "<leader>v")
 
 -- new terminals
 map("n", "<leader>tx", function()
-  require("nvchad.term").new { pos = "sp", size = 0.3 }
+  require("nvchad.term").toggle { pos = "sp", size = 0.3, id="htoggleTerm" }
 end, { desc = "Terminal New horizontal term" })
 
 map("n", "<leader>tv", function()
-  require("nvchad.term").new { pos = "vsp", size = 0.3 }
+  require("nvchad.term").toggle { pos = "vsp", size = 0.3, id="vtoggleTerm" }
 end, { desc = "Terminal New vertical window" })
 
 -- Telescope
@@ -70,9 +70,6 @@ map("n", "<Right>", "<NOP>", { desc = "Disable Right" })
 -- cluster, so navigating tabs is quite easy this way.
 map("n", "<left>", "gT")
 map("n", "<right>", "gt")
-
--- Personal Tools
-map("n", "<leader>jq", "<Esc><cmd>%!jq .<CR><Esc><cmd> set filetype=json<CR>", { desc = "Format Json" })
 
 -- Misc
 map("v", ">", ">gv", { desc = "Doesn't exit visual mode" })
