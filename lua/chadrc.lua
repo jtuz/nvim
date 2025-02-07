@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "oceanic-next",
+  theme = "tokyonight",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "oceanic-next" },
+  theme_toggle = { "gruvchad", "tokyonight" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -15,7 +15,8 @@ M.base46 = {
     WinBar = {
       bg = "statusline_bg",
     },
-    WinSeparator = { fg="nord_blue" }
+    WinSeparator = { fg = "nord_blue" },
+    DapStopped = { fg = "green"}
   },
   hl_add = {
     Nvim_navic = { fg = "red", bg = "statusline_bg" },

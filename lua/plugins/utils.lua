@@ -5,7 +5,8 @@ return {
     config = function()
       require("sessions").setup {
         events = { "WinEnter" },
-        session_filepath = ".nvim/session",
+        session_filepath = vim.fn.stdpath "data" .. "/sessions/",
+        absolute = true,
       }
     end,
   },
