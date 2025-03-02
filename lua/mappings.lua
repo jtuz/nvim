@@ -74,3 +74,5 @@ map("n", "<right>", "gt")
 -- Misc
 map("v", ">", ">gv", { desc = "Doesn't exit visual mode" })
 map("v", "<", "<gv", { desc = "Doesn't exit visual mode" })
+map("n", ">>", ">>_", { desc = "Indent" })
+map("n", "<<", "<<_", { desc = "Remove indentation" })
