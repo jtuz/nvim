@@ -12,7 +12,7 @@ g.move_key_modifier = "A"
 g.move_key_modifier_visualmode = "A"
 
 ----------------Custom Settings----------------
-g.markdown_fenced_languages = { "html", "python", "ruby", "vim", "bash", "go", "lua" }
+g.markdown_fenced_languages = { "html", "python", "ruby", "vim", "bash", "go", "lua", "json" }
 opt.mouse = ""
 opt.cmdheight = 0
 opt.shiftround = true

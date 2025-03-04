@@ -25,7 +25,6 @@ M.base46 = {
     "codeactionmenu",
     "dap",
     "diffview",
-    "markview",
     "trouble",
     "todo",
   },
