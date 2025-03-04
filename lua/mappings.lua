@@ -1,22 +1,22 @@
 require "nvchad.mappings"
 local map = vim.keymap.set
-local nomap = vim.keymap.del
+local delmap = vim.keymap.del
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
 -- Disable mappings
-nomap("n", "<C-s>")
-nomap("n", "<C-c>")
-nomap("n", "<C-n>")
-nomap("n", "<leader>b")
-nomap("n", "<leader>gt")
+delmap("n", "<C-s>")
+delmap("n", "<C-c>")
+delmap("n", "<C-n>")
+delmap("n", "<leader>b")
+delmap("n", "<leader>gt")
 -- Disable NvTerm shortcuts
-nomap("n", "<A-h>")
-nomap("t", "<A-h>")
-nomap("n", "<A-v>")
-nomap("t", "<A-v>")
-nomap("n", "<leader>h")
-nomap("n", "<leader>v")
+delmap("n", "<A-h>")
+delmap("t", "<A-h>")
+delmap("n", "<A-v>")
+delmap("t", "<A-v>")
+delmap("n", "<leader>h")
+delmap("n", "<leader>v")
 
 -- new terminals
 map("n", "<leader>tx", function()
@@ -76,3 +76,6 @@ map("v", ">", ">gv", { desc = "Doesn't exit visual mode" })
 map("v", "<", "<gv", { desc = "Doesn't exit visual mode" })
 map("n", ">>", ">>_", { desc = "Indent" })
 map("n", "<<", "<<_", { desc = "Remove indentation" })
+
+-- Toggle some settings
+map("n", "<leader>wp", "<cmd>set wrap!<CR>", { desc = "toggle wrap lines"})
