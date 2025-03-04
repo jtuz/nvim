@@ -2,8 +2,6 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 local delmap = vim.keymap.del
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-
 -- Disable mappings
 delmap("n", "<C-s>")
 delmap("n", "<C-c>")
