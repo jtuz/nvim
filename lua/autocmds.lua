@@ -1,14 +1,17 @@
 require "nvchad.autocmds"
+
+local function augroup(name)
+    return vim.api.nvim_create_augroup('nvim_jtuzp' .. name, { clear = true })
+end
 -------------------- Auto commands -----------------------
 -- Instead of reverting the cursor to the last position in the buffer
 -- we set it to the first line when editing a git commit message
 -- also Editor Config plugin is disabled on git commit message
 local autocmd = vim.api.nvim_create_autocmd
-local commit_group = vim.api.nvim_create_augroup("user_cmds", { clear = true })
 
 autocmd({ "FileType", "BufEnter" }, {
   pattern = { "gitcommit", "COMMIT_EDITMSG" },
-  group = commit_group,
+  group = augroup("commit"),
   callback = function()
     vim.b.editorconfig = false
     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
@@ -78,4 +81,12 @@ autocmd({
   callback = function()
     require("barbecue.ui").update()
   end,
+})
+
+-- resize splits if window got resized
+autocmd({ 'VimResized' }, {
+    group = augroup('resize_splits'),
+    callback = function()
+        vim.cmd('tabdo wincmd =')
+    end,
 })

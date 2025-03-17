@@ -59,14 +59,24 @@ return {
         desc = "Diagnostics (Trouble)",
       },
       {
-        "<leader>xX",
+        "<leader>dg",
         "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
         desc = "Buffer Diagnostics (Trouble)",
       },
       {
         "<leader>so",
         "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
+        desc = "Symbols outline (Trouble)",
+      },
+      {
+        "<leader>gr",
+        "<cmd>Trouble lsp_references toggle focus=true<cr>",
+        desc = "LSP References (Trouble)",
+      },
+      {
+        "<leader>sy",
+        "<cmd>Trouble lsp_document_symbols toggle focus=true<cr>",
+        desc = "LSP document symbols (Trouble)",
       },
     },
   },

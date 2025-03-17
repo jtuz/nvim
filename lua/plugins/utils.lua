@@ -31,6 +31,7 @@ return {
       dashboard = { enabled = false },
       debug = { enabled = false },
       dim = { enabled = true }, -- NOTE: use it!
+      explorer = { enabled = false },
       git = { enabled = false },
       gitbrowse = { enabled = false },
       health = { enabled = false },
