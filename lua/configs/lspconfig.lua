@@ -21,6 +21,24 @@ local function fif(config, server)
 end
 
 local servers = {
+  harper_ls = {
+    filetypes = { "markdown" },
+    settings = {
+      ["harper-ls"] = {
+        linters = {
+          TodoHypen = false,
+          SpellCheck = false,
+          SentenceCapitalization = false,
+        },
+        isolateEnglish = true,
+        markdown = {
+          -- [ignores this part]()
+          -- [[ also ignores my marksman links ]]
+          IgnoreLinkTitle = true,
+        },
+      },
+    },
+  },
   pyright = {
     settings = {
       python = {
@@ -141,6 +159,8 @@ for server, config in pairs(servers) do
     handlers = {
       ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
         -- Disable virtual_text
+        -- NOTE: check default settings for neovim 0.11
+        -- vim.diagnostic.config({virtual_text=true})
         virtual_text = false,
         underline = false,
         signs = true,

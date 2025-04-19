@@ -1,14 +1,14 @@
 require "nvchad.autocmds"
 
+-------------------- Auto commands -----------------------
+local autocmd = vim.api.nvim_create_autocmd
 local function augroup(name)
     return vim.api.nvim_create_augroup('nvim_jtuzp' .. name, { clear = true })
 end
--------------------- Auto commands -----------------------
+
 -- Instead of reverting the cursor to the last position in the buffer
 -- we set it to the first line when editing a git commit message
 -- also Editor Config plugin is disabled on git commit message
-local autocmd = vim.api.nvim_create_autocmd
-
 autocmd({ "FileType", "BufEnter" }, {
   pattern = { "gitcommit", "COMMIT_EDITMSG" },
   group = augroup("commit"),
@@ -77,7 +77,7 @@ autocmd({
   -- include this if you have set `show_modified` to `true`
   -- "BufModifiedSet",
 }, {
-  group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+  group = augroup("barbecue.updater"),
   callback = function()
     require("barbecue.ui").update()
   end,
@@ -89,4 +89,14 @@ autocmd({ 'VimResized' }, {
     callback = function()
         vim.cmd('tabdo wincmd =')
     end,
+})
+
+-- Eerimental features
+autocmd("LspAttach", {
+  callback = function (ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+  end
 })
