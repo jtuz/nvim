@@ -6,8 +6,10 @@ local delmap = vim.keymap.del
 delmap("n", "<C-s>")
 delmap("n", "<C-c>")
 delmap("n", "<C-n>")
+delmap("n", "<leader>/")
 delmap("n", "<leader>b")
 delmap("n", "<leader>gt")
+delmap("n", "<leader>e")
 -- Disable NvTerm shortcuts
 delmap("n", "<A-h>")
 delmap("t", "<A-h>")

@@ -3,24 +3,22 @@ require "nvchad.autocmds"
 -------------------- Auto commands -----------------------
 local autocmd = vim.api.nvim_create_autocmd
 local function augroup(name)
-    return vim.api.nvim_create_augroup('nvim_jtuzp' .. name, { clear = true })
+  return vim.api.nvim_create_augroup("nvim_jtuzp" .. name, { clear = true })
 end
 
--- Instead of reverting the cursor to the last position in the buffer
--- we set it to the first line when editing a git commit message
--- also Editor Config plugin is disabled on git commit message
 autocmd({ "FileType", "BufEnter" }, {
   pattern = { "gitcommit", "COMMIT_EDITMSG" },
-  group = augroup("commit"),
+  desc = "Set to the first line when editing a git commit message",
+  group = augroup "commit",
   callback = function()
     vim.b.editorconfig = false
     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
   end,
 })
 
--- Go to last location when opening a buffer
 autocmd("BufReadPost", {
   pattern = "*",
+  desc = "Go to last location when opening a buffer",
   callback = function()
     local mark = vim.api.nvim_buf_get_mark(0, '"')
     local lcount = vim.api.nvim_buf_line_count(0)
@@ -30,8 +28,8 @@ autocmd("BufReadPost", {
   end,
 })
 
--- removes trailing whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", {
+  desc = "Removes trailing whitespace on save",
   callback = function()
     local save_cursor = vim.fn.getpos "."
     vim.cmd [[%s/\s\+$//e]]
@@ -39,15 +37,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- Highlight yanked text
 autocmd("TextYankPost", {
+  desc = "Highlight yanked text",
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
   end,
 })
 
--- Enable spellchecking in markdown, gitcommit, text and html files
 autocmd("FileType", {
+  desc = "Enable spellchecking in markdown, gitcommit, text and html files",
   pattern = { "gitcommit", "markdown", "text", "html", "htmldjango" },
   callback = function()
     vim.opt_local.spell = true
@@ -55,12 +53,13 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
+  desc = "Exit with gq",
   pattern = { "help", "man", "gitsigns-blame", "qf", "git", "trouble" },
   command = "nnoremap <buffer> gq <cmd>quit<cr>",
 })
 
--- Fix conceallevel for json files
 autocmd("FileType", {
+  desc = "Fix conceallevel for json files",
   pattern = { "json", "jsonc" },
   callback = function()
     vim.wo.spell = false
@@ -68,7 +67,6 @@ autocmd("FileType", {
   end,
 })
 
--- barbecue autocmd
 autocmd({
   "WinResized",
   "BufWinEnter",
@@ -77,26 +75,27 @@ autocmd({
   -- include this if you have set `show_modified` to `true`
   -- "BufModifiedSet",
 }, {
-  group = augroup("barbecue.updater"),
+  group = augroup "barbecue.updater",
+  desc = "barbecue autocmd",
   callback = function()
     require("barbecue.ui").update()
   end,
 })
 
--- resize splits if window got resized
-autocmd({ 'VimResized' }, {
-    group = augroup('resize_splits'),
-    callback = function()
-        vim.cmd('tabdo wincmd =')
-    end,
+autocmd({ "VimResized" }, {
+  desc = "Resize splits if window got resized",
+  group = augroup "resize_splits",
+  callback = function()
+    vim.cmd "tabdo wincmd ="
+  end,
 })
 
 -- Eerimental features
-autocmd("LspAttach", {
-  callback = function (ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client and client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-    end
-  end
-})
+-- autocmd("LspAttach", {
+--   callback = function (ev)
+--     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--     if client and client:supports_method("textDocument/completion") then
+--       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+--     end
+--   end
+-- })

@@ -1,5 +1,13 @@
 return {
+  -- test new blink
+  { import = "nvchad.blink.lazyspec" },
   ----------- Overriding NvChad defaults ------------
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+  },
   {
     "nvim-telescope/telescope.nvim",
     opts = {
@@ -13,7 +21,7 @@ return {
         },
         undo = {
           use_delta = true,
-        }
+        },
       },
       defaults = {
         preview = {
@@ -90,7 +98,7 @@ return {
         "bash",
         "c",
         "cmake",
-       "comment",
+        "comment",
         "css",
         "dockerfile",
         "editorconfig",

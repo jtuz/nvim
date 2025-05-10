@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "tokyonight",
+  theme = "nightfox",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "tokyonight" },
+  theme_toggle = { "gruvchad", "nightfox" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -16,7 +16,7 @@ M.base46 = {
       bg = "statusline_bg",
     },
     WinSeparator = { fg = "nord_blue" },
-    DapStopped = { fg = "green"}
+    DapStopped = { fg = "green" },
   },
   hl_add = {
     Nvim_navic = { fg = "red", bg = "statusline_bg" },
@@ -133,6 +133,10 @@ M.mason = {
     "ruff",
     "delve",
   },
+}
+
+M.term = {
+  base46_colors = true,
 }
 
 return M
