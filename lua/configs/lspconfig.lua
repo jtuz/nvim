@@ -40,7 +40,6 @@ vim.lsp.config("jsonls", {
     },
   },
 })
-vim.lsp.enable "jsonls"
 
 vim.lsp.config("yamlls", {
   settings = {
@@ -108,12 +107,10 @@ vim.lsp.config("yamlls", {
     },
   },
 })
-vim.lsp.enable "yamlls"
 
 vim.lsp.config("powershell_es", {
   bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services/",
 })
-vim.lsp.enable "powershell_es"
 
 vim.lsp.config("harper_ls", {
   filetypes = { "markdown", "gitcommit", "COMMIT_EDITMSG" },
@@ -133,7 +130,6 @@ vim.lsp.config("harper_ls", {
     },
   },
 })
-vim.lsp.enable "harper_ls"
 
 vim.lsp.config("pyright", {
   settings = {
@@ -148,7 +144,6 @@ vim.lsp.config("pyright", {
     },
   },
 })
-vim.lsp.enable "pyright"
 
 vim.lsp.config("gopls", {
   settings = {
@@ -160,20 +155,24 @@ vim.lsp.config("gopls", {
     },
   },
 })
-vim.lsp.enable "gopls"
 
 vim.lsp.config("bashls", {
   filetypes = { "sh", "zsh", "bash" },
 })
-vim.lsp.enable "bashls"
 
 vim.lsp.config("html", {
   filetypes = { "html", "htmldjango" },
 })
 
-vim.lsp.enable "html"
-
 vim.lsp.enable {
   "marksman",
   "lemminx",
+  "html",
+  "bashls",
+  "gopls",
+  "pyright",
+  "harper_ls",
+  "powershell_es",
+  "yamlls",
+  "jsonls",
 }
