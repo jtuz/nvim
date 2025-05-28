@@ -23,6 +23,9 @@ return {
         black = {
           prepend_args = { "--fast" },
         },
+        isort = {
+          prepend_args = { "--profile", "black", "--filter-files" },
+        },
         golines = {
           prepend_args = { "--max-len=110" },
         },

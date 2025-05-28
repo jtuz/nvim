@@ -3,15 +3,8 @@ return {
   { import = "nvchad.blink.lazyspec" },
   ----------- Overriding NvChad defaults ------------
   {
-    "ibhagwan/fzf-lua",
-    -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
-  },
-  {
     "nvim-telescope/telescope.nvim",
     opts = {
-      extensions_list = { "fzf", "undo" },
       extensions = {
         fzf = {
           fuzzy = true,
@@ -27,6 +20,7 @@ return {
         preview = {
           timeout = 750,
         },
+        sorting_strategy = "ascending",
         layout_strategy = "horizontal",
         layout_config = {
           horizontal = {

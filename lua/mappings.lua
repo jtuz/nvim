@@ -40,6 +40,7 @@ end, { desc = "Spelling Suggestions" })
 
 -- Nvim tree
 map("n", "<leader>ft", "<cmd> NvimTreeToggle <CR>", { desc = "toggle nvimtree" })
+map("n", "<leader>e", "<cmd> NvimTreeFocus <CR>", { desc = "toggle nvimtree" })
 
 -- Spell
 map("n", "<F2>", "<Esc><cmd> setlocal spell spelllang=en<CR>", { desc = "ENG spelling" })
