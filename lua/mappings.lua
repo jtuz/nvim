@@ -69,5 +69,8 @@ map("v", "<", "<gv", { desc = "Doesn't exit visual mode" })
 map("n", ">>", ">>_", { desc = "Indent" })
 map("n", "<<", "<<_", { desc = "Remove indentation" })
 
+map('x', 'z/', '<C-\\><C-n>`</\\%V', { desc = 'Search forward within visual selection' })
+map('x', 'z?', '<C-\\><C-n>`>?\\%V', { desc = 'Search backward within visual selection' })
+
 -- Toggle some settings
 map("n", "<leader>wp", "<cmd>set wrap!<CR>", { desc = "toggle wrap lines"})
