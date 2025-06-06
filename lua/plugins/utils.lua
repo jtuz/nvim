@@ -63,7 +63,7 @@ return {
           open = true,
         },
       },
-      styles = { enabled = false},
+      styles = { enabled = false },
       terminal = { enabled = false },
       toggle = { enabled = false },
       win = { enabled = false },

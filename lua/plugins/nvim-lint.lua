@@ -24,6 +24,9 @@ return {
       vim.keymap.set("n", "<leader>l", function()
         lint.try_lint()
       end, { desc = "Trigger linting for current file" })
+      vim.keymap.set("n", "<leader>cf", function()
+        require("lint").try_lint "cfn_lint"
+      end, { desc = "Run AWS CloudFormation Linter" })
     end,
   },
 }

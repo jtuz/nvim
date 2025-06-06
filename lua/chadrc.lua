@@ -132,6 +132,7 @@ M.mason = {
     "debugpy",
     "ruff",
     "delve",
+    "cfn-lint"
   },
 }
 

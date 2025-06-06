@@ -20,11 +20,11 @@ delmap("n", "<leader>v")
 
 -- new terminals
 map("n", "<leader>tx", function()
-  require("nvchad.term").toggle { pos = "sp", size = 0.3, id="htoggleTerm" }
+  require("nvchad.term").toggle { pos = "sp", size = 0.3, id = "htoggleTerm" }
 end, { desc = "Terminal New horizontal term" })
 
 map("n", "<leader>tv", function()
-  require("nvchad.term").toggle { pos = "vsp", size = 0.3, id="vtoggleTerm" }
+  require("nvchad.term").toggle { pos = "vsp", size = 0.3, id = "vtoggleTerm" }
 end, { desc = "Terminal New vertical window" })
 
 -- Telescope
@@ -68,9 +68,8 @@ map("v", ">", ">gv", { desc = "Doesn't exit visual mode" })
 map("v", "<", "<gv", { desc = "Doesn't exit visual mode" })
 map("n", ">>", ">>_", { desc = "Indent" })
 map("n", "<<", "<<_", { desc = "Remove indentation" })
-
-map('x', 'z/', '<C-\\><C-n>`</\\%V', { desc = 'Search forward within visual selection' })
-map('x', 'z?', '<C-\\><C-n>`>?\\%V', { desc = 'Search backward within visual selection' })
+map("x", "z/", "<C-\\><C-n>`</\\%V", { desc = "Search forward within visual selection" })
+map("x", "z?", "<C-\\><C-n>`>?\\%V", { desc = "Search backward within visual selection" })
 
 -- Toggle some settings
-map("n", "<leader>wp", "<cmd>set wrap!<CR>", { desc = "toggle wrap lines"})
+map("n", "<leader>wp", "<cmd>set wrap!<CR>", { desc = "toggle wrap lines" })

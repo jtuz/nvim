@@ -2,16 +2,12 @@ local M = {}
 
 M.path_separator = package.config:sub(1, 1)
 
-M.OSX = function()
-  return vim.loop.os_uname().sysname == "Darwin"
-end
+-- Cache system name to avoid repeated system calls
+local sysname = vim.loop.os_uname().sysname
 
-M.LINUX = function()
-  return vim.loop.os_uname().sysname == "Linux"
-end
-
-M.WINDOWS = function ()
-  return vim.loop.os_uname().sysname == "Windows_NT"
-end
+-- OS checks as booleans for performance and simplicity
+M.OSX = sysname == "Darwin"
+M.LINUX = sysname == "Linux"
+M.WINDOWS = sysname == "Windows_NT"
 
 return M

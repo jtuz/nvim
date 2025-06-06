@@ -1,5 +1,5 @@
 local utils = require "nvchad.stl.utils"
-local op_sys = require("utils")
+local op_sys = require "utils"
 
 local sep_style = "block"
 local default_sep_icons = {
@@ -15,20 +15,20 @@ local separators = default_sep_icons[sep_style]
 local sep_l = separators["left"]
 local sep_r = separators["right"]
 
-local platform = function ()
+local platform = function()
   local os_icon = ""
-  if op_sys.LINUX() then
+  if op_sys.LINUX then
     os_icon = ""
-  elseif op_sys.OSX() then
+  elseif op_sys.OSX then
     os_icon = ""
-  elseif op_sys.WINDOWS() then
+  elseif op_sys.WINDOWS then
     os_icon = ""
   end
 
-  return  "%#St_cwd_text#" .. os_icon
+  return "%#St_cwd_text#" .. os_icon
 end
 
-local lang_translation = function ()
+local lang_translation = function()
   local spell = vim.api.nvim_get_option_value("spell", {})
   local spelllang = vim.api.nvim_get_option_value("spelllang", {})
 
@@ -40,13 +40,13 @@ end
 
 local M = {}
 
-M.FileInfo = function ()
+M.FileInfo = function()
   local x = utils.file()
   local name = " " .. x[2] .. " "
   return "%#St_file# " .. x[1] .. name .. "%#St_file_sep#" .. sep_r .. lang_translation()
 end
 
-M.Cwd = function ()
+M.Cwd = function()
   local icon = "%#St_cwd_icon#" .. "󰉋 "
   local name = "%#St_cwd_text#" .. " " .. vim.uv.cwd():match ".+/(.-)$" .. " "
   local cwd = (vim.o.columns > 85 and ("%#St_cwd_sep#" .. sep_l .. icon .. name)) or ""

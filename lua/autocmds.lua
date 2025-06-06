@@ -90,6 +90,18 @@ autocmd({ "VimResized" }, {
   end,
 })
 
+autocmd("BufEnter", {
+  desc = "Customize Copilot buffers",
+  pattern = "copilot-*",
+  group = augroup("Copilot"),
+  callback = function()
+    -- Set buffer-local options
+    vim.opt_local.relativenumber = false
+    -- vim.opt_local.number = false
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
 -- Eerimental features
 -- autocmd("LspAttach", {
 --   callback = function (ev)

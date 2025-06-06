@@ -9,6 +9,7 @@ return {
         lsp_fallback = true, -- not recommended to change
       },
       formatters_by_ft = {
+        sql = { "sql_formatter" },
         lua = { "stylua" },
         sh = { "shfmt" },
         -- Conform will run multiple formatters sequentially

@@ -3,20 +3,15 @@ require("nvchad.configs.lspconfig").defaults()
 -- local util = require "lspconfig/util"
 -- root_dir = util.find_git_ancestor,
 
--- NOTE: keep an eye on https://neovim.io/doc/user/lsp.html#vim.lsp.handlers
--- handlers = {
---   ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
---     virtual_text = false,
---     underline = false,
---     signs = true,
---     update_in_insert = false,
---   }),
--- },
+local x = vim.diagnostic.severity
 vim.diagnostic.config {
   virtual_text = false,
   underline = false,
-  signs = true,
+  signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "", [x.HINT] = "󰌵" } },
   update_in_insert = false,
+  float = {
+    border = "single",
+  },
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -149,6 +144,8 @@ vim.lsp.config("gopls", {
   settings = {
     gopls = {
       analyses = {
+        completeUnimported = true,
+        usePlaceholders = true,
         unusedparams = true,
       },
       staticcheck = true,

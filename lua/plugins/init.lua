@@ -1,6 +1,6 @@
 return {
   -- test new blink
-  { import = "nvchad.blink.lazyspec" },
+  -- { import = "nvchad.blink.lazyspec" },
   ----------- Overriding NvChad defaults ------------
   {
     "nvim-telescope/telescope.nvim",
@@ -39,9 +39,11 @@ return {
       },
     },
     dependencies = {
+      { "nvim-telescope/telescope-ui-select.nvim" },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+        -- build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+        build = "make",
       },
       {
         "debugloop/telescope-undo.nvim",
