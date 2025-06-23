@@ -36,6 +36,9 @@ opt.diffopt = { "internal", "filler", "closeoff", "linematch:60" }
 opt.autoindent = true
 opt.colorcolumn = "+1"
 opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+opt.cursorline = true
+opt.scrolloff = 10                             -- Keep 10 lines above/below cursor
+opt.sidescrolloff = 8                          -- Keep 8 columns left/right of cursor
 
 -- triggers CursorHold event faster
 opt.updatetime = 200

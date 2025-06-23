@@ -93,7 +93,7 @@ autocmd({ "VimResized" }, {
 autocmd("BufEnter", {
   desc = "Customize Copilot buffers",
   pattern = "copilot-*",
-  group = augroup("Copilot"),
+  group = augroup "Copilot",
   callback = function()
     -- Set buffer-local options
     vim.opt_local.relativenumber = false

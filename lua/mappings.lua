@@ -52,6 +52,9 @@ map("n", "<leader>gb", "<cmd> Git blame <CR>", { desc = "git blame" })
 map("n", "<leader>gh", "<cmd> diffget //2 <CR>", { desc = "diffget //2" })
 map("n", "<leader>gl", "<cmd> diffget //3 <CR>", { desc = "diffget //3" })
 
+-- Copilot
+map("n", "<leader>cp", "<cmd> CopilotChatToggle <CR>", { desc = "Toggle Copilot Chat" })
+
 -- Vim Ninja Skills
 map("n", "<Up>", "<NOP>", { desc = "Disable Up" })
 map("n", "<Down>", "<NOP>", { desc = "Disaple Down" })
@@ -70,6 +73,12 @@ map("n", ">>", ">>_", { desc = "Indent" })
 map("n", "<<", "<<_", { desc = "Remove indentation" })
 map("x", "z/", "<C-\\><C-n>`</\\%V", { desc = "Search forward within visual selection" })
 map("x", "z?", "<C-\\><C-n>`>?\\%V", { desc = "Search backward within visual selection" })
+
+-- Center screen when jumping
+map("n", "n", "nzzzv", { desc = "Next search result (centered)" })
+map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
+map("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 
 -- Toggle some settings
 map("n", "<leader>wp", "<cmd>set wrap!<CR>", { desc = "toggle wrap lines" })
