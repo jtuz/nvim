@@ -2,6 +2,7 @@ require("nvchad.configs.lspconfig").defaults()
 
 -- local util = require "lspconfig/util"
 -- root_dir = util.find_git_ancestor,
+local home_dir = os.getenv("HOME")
 
 local x = vim.diagnostic.severity
 vim.diagnostic.config {
@@ -161,7 +162,17 @@ vim.lsp.config("html", {
   filetypes = { "html", "htmldjango" },
 })
 
+vim.lsp.config("groovyls", {
+  cmd = {
+    "java",
+    "-jar",
+    home_dir .. "/.local/bin/groovy-language-server-all.jar",
+  },
+  filetypes = { "groovy" },
+})
+
 vim.lsp.enable {
+  "groovyls",
   "marksman",
   "lemminx",
   "html",

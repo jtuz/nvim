@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "neofusion",
+  theme = "everforest",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "neofusion" },
+  theme_toggle = { "gruvchad", "everforest" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -22,9 +22,7 @@ M.base46 = {
     Nvim_navic = { fg = "red", bg = "statusline_bg" },
   },
   integrations = {
-    "codeactionmenu",
     "dap",
-    "diffview",
     "trouble",
     "todo",
   },
