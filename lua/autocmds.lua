@@ -67,21 +67,6 @@ autocmd("FileType", {
   end,
 })
 
-autocmd({
-  "WinResized",
-  "BufWinEnter",
-  "CursorHold",
-  "InsertLeave",
-  -- include this if you have set `show_modified` to `true`
-  -- "BufModifiedSet",
-}, {
-  group = augroup "barbecue.updater",
-  desc = "barbecue autocmd",
-  callback = function()
-    require("barbecue.ui").update()
-  end,
-})
-
 autocmd({ "VimResized" }, {
   desc = "Resize splits if window got resized",
   group = augroup "resize_splits",

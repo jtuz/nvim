@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client and client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, ev.buf)
+      vim.opt_local.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
     end
   end,
 })
