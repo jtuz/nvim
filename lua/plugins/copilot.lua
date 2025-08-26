@@ -30,9 +30,14 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
-      question_header = " ",
-      answer_header = " ",
-      error_header = " ",
+      window = {
+        title = '🤖 AI Assistant',
+      },
+      headers = {
+        user = "  You: ",
+        assistant = "  Copilot: ",
+        tool = "🔧 Tool: ",
+      }
       -- See Configuration section for options
     },
     -- See Commands section for default commands if you want to lazy load on them

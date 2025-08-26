@@ -33,12 +33,11 @@ opt.fillchars = {
   eob = " ",
 }
 opt.diffopt = { "internal", "filler", "closeoff", "linematch:60" }
-opt.autoindent = true
 opt.colorcolumn = "+1"
 opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 opt.cursorline = true
-opt.scrolloff = 10 -- Keep 10 lines above/below cursor
-opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
+-- opt.scrolloff = 10 -- Keep 10 lines above/below cursor
+-- opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 
 -- triggers CursorHold event faster
 opt.updatetime = 200
@@ -50,15 +49,20 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
 
--- Abbrev
-cmd "cnoreabbrev Q  q"
-cmd "cnoreabbrev q1  q!"
-cmd "cnoreabbrev Q1  q!"
-cmd "cnoreabbrev Qa1 qa!"
-cmd "cnoreabbrev Qa qa"
-cmd "cnoreabbrev W  w"
-cmd "cnoreabbrev Wq wq"
-cmd "cnoreabbrev WQ wq"
-cmd "cnoreabbrev Set set"
-cmd "cnoreabbrev SEt set"
-cmd "cnoreabbrev SET set"
+-- Command abbreviations
+local abbreviations = {
+  Q = "q",
+  q1 = "q!",
+  Q1 = "q!",
+  Qa1 = "qa!",
+  Qa = "qa",
+  W = "w",
+  Wq = "wq",
+  WQ = "wq",
+  Set = "set",
+  SEt = "set",
+  SET = "set",
+}
+for lhs, rhs in pairs(abbreviations) do
+  vim.cmd(string.format("cnoreabbrev %s %s", lhs, rhs))
+end

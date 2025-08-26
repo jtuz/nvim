@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "doomchad",
+  theme = "nord",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "doomchad" },
+  theme_toggle = { "gruvchad", "nord" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },

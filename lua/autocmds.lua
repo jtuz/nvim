@@ -12,7 +12,7 @@ autocmd({ "FileType", "BufEnter" }, {
   group = augroup "commit",
   callback = function()
     vim.b.editorconfig = false
-    vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
+    vim.api.nvim_win_set_cursor(0, { 1, 0 })
   end,
 })
 
@@ -46,7 +46,7 @@ autocmd("TextYankPost", {
 
 autocmd("FileType", {
   desc = "Enable spellchecking in markdown, gitcommit, text and html files",
-  pattern = { "gitcommit", "markdown", "text", "html", "htmldjango" },
+  pattern = { "gitcommit", "markdown", "text", "html", "htmldjango", "copilot-chat" },
   callback = function()
     vim.opt_local.spell = true
   end,
@@ -55,15 +55,17 @@ autocmd("FileType", {
 autocmd("FileType", {
   desc = "Exit with gq",
   pattern = { "help", "man", "gitsigns-blame", "qf", "git", "trouble" },
-  command = "nnoremap <buffer> gq <cmd>quit<cr>",
+  callback = function()
+    vim.keymap.set("n", "gq", "<cmd>quit<cr>", { buffer = true, silent = true })
+  end,
 })
 
 autocmd("FileType", {
   desc = "Fix conceallevel for json files",
   pattern = { "json", "jsonc" },
   callback = function()
-    vim.wo.spell = false
-    vim.wo.conceallevel = 0
+    vim.opt_local.spell = false
+    vim.opt_local.conceallevel = 0
   end,
 })
 
@@ -81,7 +83,7 @@ autocmd("BufEnter", {
   group = augroup "Copilot",
   callback = function()
     -- Set buffer-local options
-    vim.opt_local.relativenumber = false
+    vim.opt_local.relativenumber = true
     -- vim.opt_local.number = false
     vim.opt_local.conceallevel = 0
   end,
