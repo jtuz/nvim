@@ -35,6 +35,7 @@ opt.fillchars = {
 opt.diffopt = { "internal", "filler", "closeoff", "linematch:60" }
 opt.colorcolumn = "+1"
 opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+vim.o.cursorlineopt = "both"
 opt.cursorline = true
 -- opt.scrolloff = 10 -- Keep 10 lines above/below cursor
 -- opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor

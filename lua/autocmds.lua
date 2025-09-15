@@ -85,7 +85,7 @@ autocmd("BufEnter", {
     -- Set buffer-local options
     vim.opt_local.relativenumber = true
     -- vim.opt_local.number = false
-    vim.opt_local.conceallevel = 0
+    -- vim.opt_local.conceallevel = 0
   end,
 })
 

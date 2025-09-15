@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "nord",
+  theme = "tokyonight",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "nord" },
+  theme_toggle = { "gruvchad", "tokyonight" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -23,39 +23,12 @@ M.base46 = {
   },
   hl_add = {
     Nvim_navic = { fg = "red", bg = "statusline_bg" },
-    NavicIconsFile = { bg = "statusline_bg", fg = "base07" },
-    NavicIconsModule = { bg = "statusline_bg", fg = "base0A" },
-    NavicIconsNamespace = { bg = "statusline_bg", fg = "base0E" },
-    NavicIconsPackage = { bg = "statusline_bg", fg = "base0E" },
-    NavicIconsClass = { bg = "statusline_bg", fg = "teal" },
-    NavicIconsMethod = { bg = "statusline_bg", fg = "base0D" },
-    NavicIconsProperty = { bg = "statusline_bg", fg = "base08" },
-    NavicIconsField = { bg = "statusline_bg", fg = "base08" },
-    NavicIconsConstructor = { bg = "statusline_bg", fg = "blue" },
-    NavicIconsEnum = { bg = "statusline_bg", fg = "blue" },
-    NavicIconsInterface = { bg = "statusline_bg", fg = "green" },
-    NavicIconsFunction = { bg = "statusline_bg", fg = "base0D" },
-    NavicIconsVariable = { bg = "statusline_bg", fg = "base0E" },
-    NavicIconsConstant = { bg = "statusline_bg", fg = "base09" },
-    NavicIconsString = { bg = "statusline_bg", fg = "base08" },
-    NavicIconsNumber = { bg = "statusline_bg", fg = "wnite" },
-    NavicIconsBoolean = { bg = "statusline_bg", fg = "white" },
-    NavicIconsArray = { bg = "statusline_bg", fg = "green" },
-    NavicIconsObject = { bg = "statusline_bg", fg = "white" },
-    NavicIconsKey = { bg = "statusline_bg", fg = "base07" },
-    NavicIconsNull = { bg = "statusline_bg", fg = "white" },
-    NavicIconsEnumMember = { bg = "statusline_bg", fg = "purple" },
-    NavicIconsStruct = { bg = "statusline_bg", fg = "base0E" },
-    NavicIconsEvent = { bg = "statusline_bg", fg = "yellow" },
-    NavicIconsOperator = { bg = "statusline_bg", fg = "base05" },
-    NavicIconsTypeParameter = { bg = "statusline_bg", fg = "base08" },
-    NavicText = { bg = "statusline_bg", fg = "white" },
-    NavicSeparator = { bg = "statusline_bg", fg = "grey_fg2" },
   },
   integrations = {
     "dap",
     "trouble",
     "todo",
+    "navic"
   },
 }
 

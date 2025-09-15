@@ -12,6 +12,7 @@ return {
         "SmiteshP/nvim-navic",
         event = "LspAttach",
         config = function()
+        dofile(vim.g.base46_cache .. "navic")
           require("nvim-navic").setup {
             highlight = true,
             icons = {
