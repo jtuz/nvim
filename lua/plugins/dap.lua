@@ -82,6 +82,7 @@ return {
       {
         "mfussenegger/nvim-dap-python",
         ft = "python",
+        enabled = false,
         config = function()
           local mason_venv_path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
           require("dap-python").setup(mason_venv_path)

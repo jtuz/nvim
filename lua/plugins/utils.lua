@@ -72,6 +72,13 @@ return {
     },
     keys = {
       {
+        "<leader>hl",
+        function()
+          Snacks.dim()
+        end,
+        desc = "Highlight block",
+      },
+      {
         "<leader>lg",
         function()
           Snacks.lazygit.open()

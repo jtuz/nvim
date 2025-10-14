@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "tokyonight",
+  theme = "nord",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "tokyonight" },
+  theme_toggle = { "gruvchad", "nord" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -36,7 +36,7 @@ M.base46 = {
 M.ui = {
   cmp = {
     -- lspkind_text = false,
-    style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
+    style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
     icons = true,
     lspkind_text = true,
   },
