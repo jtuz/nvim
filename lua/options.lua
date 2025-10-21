@@ -32,9 +32,9 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
-opt.diffopt = { "internal", "filler", "closeoff", "linematch:60" }
+opt.diffopt = { "internal", "filler", "closeoff", "linematch:60", "vertical,context:99" }
 opt.colorcolumn = "+1"
-opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+opt.wildignore = ".DS_Store,*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 vim.o.cursorlineopt = "both"
 opt.cursorline = true
 -- opt.scrolloff = 10 -- Keep 10 lines above/below cursor
@@ -49,6 +49,9 @@ opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
+
+-- Use rounded borders for floating windows.
+vim.o.winborder = 'rounded'
 
 -- Command abbreviations
 local abbreviations = {

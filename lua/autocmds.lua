@@ -19,9 +19,9 @@ autocmd({ "FileType", "BufEnter" }, {
 autocmd("BufReadPost", {
   pattern = "*",
   desc = "Go to last location when opening a buffer",
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
+  callback = function(args)
+    local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+    local lcount = vim.api.nvim_buf_line_count(args.buf)
     if mark[1] > 0 and mark[1] <= lcount then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
@@ -87,6 +87,25 @@ autocmd("BufEnter", {
     -- vim.opt_local.number = false
     -- vim.opt_local.conceallevel = 0
   end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+    group = augroup "treesitter_folding",
+    desc = 'Enable Treesitter folding',
+    callback = function(args)
+        local bufnr = args.buf
+
+        -- Enable Treesitter folding when not in huge files and when Treesitter
+        -- is working.
+        if vim.bo[bufnr].filetype ~= 'bigfile' and pcall(vim.treesitter.start, bufnr) then
+            vim.api.nvim_buf_call(bufnr, function()
+                vim.wo[0][0].foldmethod = 'expr'
+                vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                vim.wo[0][0].foldtext = "" -- enable syntax highlight on the first line
+                vim.cmd.normal 'zx'
+            end)
+        end
+    end,
 })
 
 -- Eerimental features

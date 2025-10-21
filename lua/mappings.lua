@@ -74,6 +74,10 @@ map("n", "<<", "<<_", { desc = "Remove indentation" })
 map("x", "z/", "<C-\\><C-n>`</\\%V", { desc = "Search forward within visual selection" })
 map("x", "z?", "<C-\\><C-n>`>?\\%V", { desc = "Search backward within visual selection" })
 
+-- Remap for dealing with word wrap and adding jumps to the jumplist.
+map('n', 'j', [[(v:count > 1 ? 'm`' . v:count : 'g') . 'j']], { expr = true })
+map('n', 'k', [[(v:count > 1 ? 'm`' . v:count : 'g') . 'k']], { expr = true })
+
 -- Center screen when jumping
 map("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
