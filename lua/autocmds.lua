@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 autocmd("TextYankPost", {
   desc = "Highlight yanked text",
+  pattern = "*",
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
   end,
@@ -89,23 +90,38 @@ autocmd("BufEnter", {
   end,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-    group = augroup "treesitter_folding",
-    desc = 'Enable Treesitter folding',
-    callback = function(args)
-        local bufnr = args.buf
+autocmd("FileType", {
+  group = augroup "treesitter_folding",
+  desc = "Enable Treesitter folding",
+  callback = function(args)
+    local bufnr = args.buf
 
-        -- Enable Treesitter folding when not in huge files and when Treesitter
-        -- is working.
-        if vim.bo[bufnr].filetype ~= 'bigfile' and pcall(vim.treesitter.start, bufnr) then
-            vim.api.nvim_buf_call(bufnr, function()
-                vim.wo[0][0].foldmethod = 'expr'
-                vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-                vim.wo[0][0].foldtext = "" -- enable syntax highlight on the first line
-                vim.cmd.normal 'zx'
-            end)
-        end
-    end,
+    -- Enable Treesitter folding when not in huge files and when Treesitter
+    -- is working.
+    if vim.bo[bufnr].filetype ~= "bigfile" and pcall(vim.treesitter.start, bufnr) then
+      vim.api.nvim_buf_call(bufnr, function()
+        vim.wo[0][0].foldmethod = "expr"
+        vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.wo[0][0].foldtext = "" -- enable syntax highlight on the first line
+        vim.cmd.normal "zx"
+      end)
+    end
+  end,
+})
+
+autocmd("FileType", {
+  group = augroup "help_window",
+  desc = "Open help in vertical split",
+  pattern = "help",
+  command = "wincmd L",
+})
+
+autocmd("FileType", {
+  group = augroup "no_auto_comment" ,
+  desc = "No autoconinue comments in newline",
+  callback = function()
+    vim.opt_local.formatoptions:remove { "c", "r", "o" }
+  end,
 })
 
 -- Eerimental features
