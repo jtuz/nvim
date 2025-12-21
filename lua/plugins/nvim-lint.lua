@@ -7,6 +7,10 @@ return {
       lint.events = { "BufWritePost", "BufReadPost", "InsertLeave" }
 
       lint.linters_by_ft = {
+        markdown = { "vale" },
+        htmldjangp = { "curlylint" },
+        gitcommit = { "codespell" },
+        dockerfile = { "hadolint" },
         python = { "flake8" },
         go = { "golangcilint" },
         yaml = { "yamllint" },

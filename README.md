@@ -1,6 +1,6 @@
-# NeoVim config
+# Neovim config
 
-My neovim config using [NvChad](https://github.com/NvChad/NvChad)
+My Neovim config using [NvChad](https://github.com/NvChad/NvChad)
 
 Install:
 

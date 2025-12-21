@@ -68,5 +68,5 @@ local abbreviations = {
   SET = "set",
 }
 for lhs, rhs in pairs(abbreviations) do
-  vim.cmd(string.format("cnoreabbrev %s %s", lhs, rhs))
+  cmd(string.format("cnoreabbrev %s %s", lhs, rhs))
 end
