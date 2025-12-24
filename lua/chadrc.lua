@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "tokyonight",
+  theme = "nightfox",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "tokyonight" },
+  theme_toggle = { "gruvchad", "nightfox" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -132,7 +132,6 @@ M.mason = {
   cmd = true,
   pkgs = {
     "debugpy",
-    "ruff",
     "delve",
     "cfn-lint",
   },

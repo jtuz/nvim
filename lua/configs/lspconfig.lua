@@ -127,12 +127,28 @@ local servers = {
   pyright = {
     settings = {
       python = {
+        disablOrganizeImports = true,
         analysis = {
           autoImportCompletions = true,
           autoSearchPaths = true,
           useLibraryCodeForTypes = true,
           diagnosticMode = "openFilesOnly",
           indexing = true,
+          typeCheckingMode = "standard",
+          exclude = {
+            "cassetes",
+            "data",
+            "docs",
+            "infraestructure",
+            "infra",
+            "locale",
+            "model_mommy",
+            "scripts",
+            "templates",
+            "**/node_modules",
+            "**/__pycache__",
+            ".git",
+          },
         },
       },
     },
