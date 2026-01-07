@@ -2,9 +2,9 @@
 local M = {}
 
 M.base46 = {
-  theme = "nightfox",
+  theme = "catppucin-frape",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "nightfox" },
+  theme_toggle = { "gruvchad", "catppucin-frape" },
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg = "grey_fg" },
@@ -35,7 +35,6 @@ M.base46 = {
 -- ui configs
 M.ui = {
   cmp = {
-    -- lspkind_text = false,
     style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
     icons = true,
     lspkind_text = true,

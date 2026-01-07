@@ -1,0 +1,12 @@
+{
+    "Proton Mail": {
+        "prefix": "mypm",
+        "body": "jetp79@proton.me",
+        "description": "Insert my Proton Email"
+    },
+    "Class Valuation Email": {
+        "prefix": "cvem",
+        "body": "jtuz@classvaluation.com",
+        "description": "Class Valuation Email"
+    }
+}

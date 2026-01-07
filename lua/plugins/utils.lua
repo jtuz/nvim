@@ -26,18 +26,24 @@ return {
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
-      bigfile = { enabled = false },
+      bigfile = {
+        enabled = true,
+        size = 30 * 1024 * 1024, -- 30MB
+        line_lenght = 2000,
+      },
       bufdelete = { enabled = false },
       dashboard = { enabled = false },
       debug = { enabled = false },
       dim = { enabled = true }, -- NOTE: use it!
       explorer = { enabled = false },
+      gh = { enabled = false },
       git = { enabled = false },
       gitbrowse = { enabled = false },
       health = { enabled = false },
       image = { enabled = false },
       indent = { enabled = false },
       input = { enabled = false },
+      keymap = { enabled=false },
       layout = { enabled = false },
       lazygit = {
         enabled = true,

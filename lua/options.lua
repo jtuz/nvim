@@ -7,9 +7,14 @@ local cmd = vim.cmd
 -- Some providers are disabled by default in NvChad
 -- https://github.com/NvChad/NvChad/blob/09dd13e9c6df98fe5609829a7a0fbccea2f515ae/lua/nvchad/options.lua#L47
 
+-- PLUGINS OPTIONS --
 -- Vim Move by matze
 g.move_key_modifier = "A"
 g.move_key_modifier_visualmode = "A"
+
+-- Friendly Snippets
+g.vscode_snippets_path = vim.fn.stdpath "config" .. "/snippets"
+---------------------
 
 ----------------Custom Settings----------------
 g.markdown_fenced_languages = { "html", "python", "ruby", "vim", "bash", "go", "lua", "json" }
@@ -37,8 +42,6 @@ opt.colorcolumn = "+1"
 opt.wildignore = ".DS_Store,*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 vim.o.cursorlineopt = "both"
 opt.cursorline = true
--- opt.scrolloff = 10 -- Keep 10 lines above/below cursor
--- opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 
 -- triggers CursorHold event faster
 opt.updatetime = 200

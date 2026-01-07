@@ -117,6 +117,7 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
+  pattern = "*",
   group = augroup "no_auto_comment" ,
   desc = "No autoconinue comments in newline",
   callback = function()
