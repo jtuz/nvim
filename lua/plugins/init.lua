@@ -83,13 +83,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      yati = {
-        enable = true,
-        default_fallback = "auto",
-      },
-      indent = {
-        enable = false,
-      },
       ensure_installed = {
         "bash",
         "c",
@@ -112,7 +105,6 @@ return {
         "htmldjango",
         "javascript",
         "json",
-        "jsonc",
         "lua",
         "make",
         "markdown",
@@ -128,9 +120,6 @@ return {
         "typescript",
         "yaml",
       },
-    },
-    dependencies = {
-      { "yioneko/nvim-yati" },
     },
   },
   {

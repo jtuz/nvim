@@ -110,6 +110,7 @@ local servers = {
     filetypes = { "markdown", "gitcommit", "COMMIT_EDITMSG" },
     settings = {
       ["harper-ls"] = {
+        -- userDictPath = "",
         linters = {
           TodoHypen = false,
           SpellCheck = false,

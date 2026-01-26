@@ -1,34 +1,20 @@
 ---@type ChadrcConfig
 local M = {}
 
+local highlights = require "custom.highlights"
+
 M.base46 = {
-  theme = "catppucin-frape",
+  theme = "oceanic-next",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "catppucin-frape" },
+  theme_toggle = { "gruvchad", "oceanic-next" },
   transparency = false,
-  hl_override = {
-    Comment = { italic = true, fg = "grey_fg" },
-    ["@comment"] = { italic = true, fg = "grey_fg" },
-    NvDashAscii = { bg = "#0E2738", fg = "red" },
-    NvDashButtons = { bg = "#17415E", fg = "white" },
-    NvimTreeRootFolder = { fg = "green" },
-    WinBar = {
-      bg = "statusline_bg",
-    },
-    WinBarNC = {
-      bg = "statusline_bg",
-    },
-    WinSeparator = { fg = "nord_blue" },
-    DapStopped = { fg = "green" },
-  },
-  hl_add = {
-    Nvim_navic = { fg = "red", bg = "statusline_bg" },
-  },
+  hl_override = highlights.override,
+  hl_add = highlights.add,
   integrations = {
     "dap",
     "trouble",
     "todo",
-    "navic"
+    "navic",
   },
 }
 
@@ -44,31 +30,23 @@ M.ui = {
   },
   -- https://github.com/NvChad/NvChad/commit/16fadf9e0d53cf65a954486952ac3eba36d46788#commitcomment-139350293
   statusline = {
+    enabled = true,
     theme = "default", -- default/vscode/vscode_colored/minimal
     separator_style = "default", -- default/round/block/arrow
     order = {
       "mode",
-      "customFile",
+      "file_info",
       "git",
       "%=",
       "lsp_msg",
       "%=",
+      "python_venv",
       "diagnostics",
       "lsp",
-      "customCwd",
-      "customCursorPosition",
+      "custom_cwd",
+      "cursor_position",
     },
-    modules = {
-      customFile = function()
-        return require("custom_ui.statusline").FileInfo()
-      end,
-      customCwd = function()
-        return require("custom_ui.statusline").Cwd()
-      end,
-      customCursorPosition = function()
-        return require("custom_ui.statusline").CursorPosition()
-      end,
-    },
+    modules = require("custom.statusline").modules,
   },
   tabufline = {
     order = { "treeOffset", "buffers", "tabs" },
@@ -127,6 +105,7 @@ M.nvdash = {
 M.lsp = {
   signature = true,
 }
+
 M.mason = {
   cmd = true,
   pkgs = {
