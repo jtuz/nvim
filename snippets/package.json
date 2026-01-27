@@ -1,9 +1,45 @@
 {
+  "name": "custom-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
   "contributes": {
     "snippets": [
       {
         "language": "all",
         "path": "./all.json"
+      },
+      {
+        "language": "json",
+        "path": "./json-general.json"
+      },
+      {
+        "language": "json",
+        "path": "./json-cfn-resource-types.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./yaml-condition-functions.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./yaml-general.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./yaml-intrinsic-functions.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./yaml-parameter-types.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./yaml-cfn-resource-types.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./yaml-sam-resource-types.json"
       }
     ]
   }
