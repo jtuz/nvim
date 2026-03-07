@@ -83,8 +83,31 @@ M.modules = {
     if venv == " " then
       return " "
     else
-      return "  " .. venv
+      return "%#St_lspWarning#" .. "  (" .. venv .. ")"
     end
+  end,
+
+  mcp_hub_status = function()
+    if not vim.g.loaded_mcphub then
+      return "%#St_lspError#" .. "󰐻 -"
+    end
+    local count = vim.g.mcphub_servers_count or 0
+    local status = vim.g.mcphub_status or "stopped"
+    local executing = vim.g.mcphub_executing
+
+    -- Show "-" when stopped
+    if status == "stopped" then
+      return "%#St_lspError#" .. "󰐻 -"
+    end
+
+    -- Show spinner when executing, starting, or restarting
+    if executing or status == "starting" or status == "restarting" then
+      local frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+      local frame = math.floor(vim.loop.now() / 100) % #frames + 1
+      return "%#St_lspWarning#" .. "󰐻 " .. frames[frame]
+    end
+
+    return "%#St_LspMsg#" .. "󰐻 " .. count
   end,
 }
 

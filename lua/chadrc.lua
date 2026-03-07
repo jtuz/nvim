@@ -40,6 +40,7 @@ M.ui = {
       "%=",
       "lsp_msg",
       "%=",
+       "mcp_hub_status",
       "python_venv",
       "diagnostics",
       "lsp",
