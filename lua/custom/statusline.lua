@@ -88,8 +88,11 @@ M.modules = {
   end,
 
   mcp_hub_status = function()
+    local MCP_ICON = " "
+    local MCP_DISCONNECTECT = "%#St_lspError#" .. MCP_ICON .. "-"
+
     if not vim.g.loaded_mcphub then
-      return "%#St_lspError#" .. "󰐻 -"
+      return MCP_DISCONNECTECT
     end
     local count = vim.g.mcphub_servers_count or 0
     local status = vim.g.mcphub_status or "stopped"
@@ -97,17 +100,17 @@ M.modules = {
 
     -- Show "-" when stopped
     if status == "stopped" then
-      return "%#St_lspError#" .. "󰐻 -"
+      return MCP_DISCONNECTECT
     end
 
     -- Show spinner when executing, starting, or restarting
     if executing or status == "starting" or status == "restarting" then
       local frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
       local frame = math.floor(vim.loop.now() / 100) % #frames + 1
-      return "%#St_lspWarning#" .. "󰐻 " .. frames[frame]
+      return "%#St_lspWarning#" .. MCP_ICON .. frames[frame]
     end
 
-    return "%#St_LspMsg#" .. "󰐻 " .. count
+    return "%#St_LspMsg#" .. MCP_ICON .. count
   end,
 }
 

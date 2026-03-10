@@ -31,11 +31,11 @@ return {
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
       window = {
-        layout = 'float',
+        layout = 'horizontal',-- 'vertical', 'horizontal', 'float'
         -- width = 80, -- Fixed width in columns
         -- height = 20, -- Fixed height in rows
-        width = math.floor(vim.o.columns * 0.7), -- 70% of terminal width
-        height = math.floor(vim.o.lines * 0.6),  -- 60% of terminal height
+        width = math.floor(vim.o.columns * 0.3), -- 70% of terminal width
+        height = math.floor(vim.o.lines * 0.3),  -- 60% of terminal height
         border = 'rounded', -- 'single', 'double', 'rounded', 'solid'
         zindex = 100, -- Ensure window stays on top
         title = '🤖 AI Assistant',

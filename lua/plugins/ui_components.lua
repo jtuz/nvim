@@ -21,6 +21,7 @@ return {
   {
     -- NOTE: <C-b> is disabled due wezterm conflicts
     "karb94/neoscroll.nvim",
+    enabled = false,
     lazy = true,
     keys = { "<C-d>", "<C-u>", "<C-e>", "<C-f>", "<C-y>", "zt", "zb", "zz" },
     opts = {

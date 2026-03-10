@@ -4,9 +4,9 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.base46 = {
-  theme = "oceanic-next",
+  theme = "oceanic-rigel",
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "oceanic-next" },
+  theme_toggle = { "gruvchad", "oceanic-rigel" },
   transparency = false,
   hl_override = highlights.override,
   hl_add = highlights.add,
