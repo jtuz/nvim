@@ -20,10 +20,10 @@ M.base_30 = {
   baby_pink = "#ff7585",
   pink = "#f0a0d0",
   line = "#00212b",
-  green = "#8fd878",
-  vibrant_green = "#70c060",
-  nord_blue = "#70a8d8",
-  blue = "#1890b0",
+  green = "#9cf087",
+  vibrant_green = "#7fc06e",
+  nord_blue = "#7eb2dd",
+  blue = "#1c8db2",
   yellow = "#f09040",
   sun = "#f8c040",
   purple = "#c080e8",
@@ -49,9 +49,9 @@ M.base_16 = {
   base08 = "#e06070",
   base09 = "#ff7585",
   base0A = "#f09040",
-  base0B = "#8fd878",
+  base0B = "#9cf087",
   base0C = "#00b8b8",
-  base0D = "#1890b0",
+  base0D = "#1c8db2",
   base0E = "#c080e8",
   base0F = "#f0a0d0",
 }
@@ -97,6 +97,6 @@ M.polish_hl = {
   },
 }
 
-M = require("base46").override_theme(M, "oceanic-rigel")
+M = require("base46").override_theme(M, "robbie")
 
 return M
