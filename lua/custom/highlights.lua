@@ -13,10 +13,10 @@ M.override = {
   NvDashButtons = { bg = "#17415E", fg = "white" },
   NvimTreeRootFolder = { fg = "green" },
   WinBar = {
-    bg = "statusline_bg",
+    bg = "black2",
   },
   WinBarNC = {
-    bg = "statusline_bg",
+    bg = "black2",
   },
   WinSeparator = { fg = "nord_blue" },
   DapStopped = { fg = "green" },
