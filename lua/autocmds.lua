@@ -19,7 +19,12 @@ autocmd({ "FileType", "BufEnter" }, {
 autocmd("BufReadPost", {
   pattern = "*",
   desc = "Go to last location when opening a buffer",
+  group = augroup("JumLastLocation"),
   callback = function(args)
+    -- Skip if the buffer is not a normal file or a git commit.
+    if vim.bo.buftype == "" or vim.tbl_contains({ "diff", "gitcommit" }, vim.bo.filetype) then
+      return
+    end
     local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
     local lcount = vim.api.nvim_buf_line_count(args.buf)
     if mark[1] > 0 and mark[1] <= lcount then
@@ -42,6 +47,11 @@ autocmd("TextYankPost", {
   pattern = "*",
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
+    if vim.v.event.operator == 'y' then
+      for i = 9, 1, -1 do
+        vim.fn.setreg(tostring(i), vim.fn.getreg(tostring(i - 1)))
+      end
+    end
   end,
 })
 
@@ -79,9 +89,9 @@ autocmd({ "VimResized" }, {
 })
 
 autocmd("BufEnter", {
-  desc = "Customize Copilot buffers",
-  pattern = "copilot-*",
-  group = augroup "Copilot",
+  desc = "Customize CodeCompanion buffers",
+  pattern = "codecompanion",
+  group = augroup "CodeCompanion",
   callback = function()
     -- Set buffer-local options
     vim.opt_local.relativenumber = true
@@ -118,7 +128,7 @@ autocmd("FileType", {
 
 autocmd("FileType", {
   pattern = "*",
-  group = augroup "no_auto_comment" ,
+  group = augroup "no_auto_comment",
   desc = "No autoconinue comments in newline",
   callback = function()
     vim.opt_local.formatoptions:remove { "c", "r", "o" }
@@ -133,4 +143,19 @@ autocmd("FileType", {
 --       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
 --     end
 --   end
+-- })
+-- LSP  progress bar on ghostty
+-- vim.api.nvim_create_autocmd("LspProgress", {
+--   callback = function(ev)
+--     vim.print(ev.data)
+--     local value = ev.data.params.value
+--     vim.api.nvim_echo({ { value.message or "done" } }, false, {
+--       id = "lsp." .. ev.data.client_id,
+--       kind = "progress",
+--       source = "vim.lsp",
+--       title = value.title,
+--       status = value.kind ~= "end" and "running" or "success",
+--       percent = value.percentage,
+--     })
+--   end,
 -- })

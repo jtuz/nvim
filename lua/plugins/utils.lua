@@ -61,7 +61,7 @@ return {
       profiler = { enabled = false },
       quickfile = { enabled = true },
       rename = { enabled = false },
-      scroll = { enabled = true },
+      scroll = { enabled = false },
       scratch = { enabled = false },
       statuscolumn = {
         enabled = true,
